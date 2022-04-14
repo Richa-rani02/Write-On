@@ -1,14 +1,12 @@
 import "./App.css";
-import {Routes,Route} from "react-router-dom";
-import Mockman from "mockman-js";
+import NavRoutes from "./routes/NavRoutes";
+
 function App() {
   return (
-    <>
+    <main>
     <h1 className='text-3xl font-bold underline'>Hello World</h1>
-    <Routes>
-    <Route path="/mock" element={<Mockman />}/>
-  </Routes>
-  </>
+    <NavRoutes/>
+  </main>
   );
 }
 

@@ -5,8 +5,12 @@ module.exports = {
   theme: {
     extend: {
           colors: {
-      purpletext:"#18193d"
+         purpleprimary:"#18193d",
+         yellowprimary:'#FFB102'
 
+    },
+    fontFamily: {
+      'Sail': ['Sail', 'cursive'] 
     },
 
     },

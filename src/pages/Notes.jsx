@@ -1,7 +1,7 @@
 import { Header,Sidebar } from "../components"
 export const Notes=()=>{
     return(
-        <div className="notes bg-neutral-50 h-screen w-screen">
+        <div className="notes bg-[#FAFAFA] h-full w-screen">
         <Header />
         <Sidebar/>
         <div className="mt-16 ml-64 px-3 py-2">

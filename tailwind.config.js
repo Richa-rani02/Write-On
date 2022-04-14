@@ -3,7 +3,13 @@ module.exports = {
     "./src/**/*.{js,jsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+          colors: {
+      purpletext:"#18193d"
+
+    },
+
+    },
   },
   plugins: [],
 }

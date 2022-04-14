@@ -3,7 +3,17 @@ module.exports = {
     "./src/**/*.{js,jsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+          colors: {
+         purpleprimary:"#18193d",
+         yellowprimary:'#FFB102'
+
+    },
+    fontFamily: {
+      'Sail': ['Sail', 'cursive'] 
+    },
+
+    },
   },
   plugins: [],
 }

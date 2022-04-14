@@ -2,7 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 @import url("/node_modules/mockman-js/dist/style.css");
+@import url('https://fonts.googleapis.com/css2?family=Sail&display=swap');
 
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,6 +24,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x:hidden;
 }
 
 code {

@@ -10,7 +10,7 @@ export const Login = () => {
     const navigate = useNavigate();
 
     const { authState: { error }, authDispatch} = useAuth();
-    console.log(error);
+
     const errorMsg =
         error === ""
             ? ""
@@ -46,7 +46,7 @@ export const Login = () => {
         <>
             <div className="w-1/2 h-full overflow-hidden ">
                 <div className="px-8 py-6 text-left bg-white">
-                    <h3 className="text-2xl font-bold text-center text-purpleprimary">Login</h3>
+                    <h3 className="text-2xl font-bold text-center text-purpleprimary ">Login</h3>
                     {
                     errorMsg ?
                         (<div className="mt-4 px-3 py-1 bg-rose-200 text-sm"> {errorMsg} </div>)

@@ -9,11 +9,18 @@ export const Signup = () => {
                     </div>
                     <h3 className="text-2xl font-bold text-center text-purpleprimary">Create new Account</h3>
                     <form action="">
-                        <div className="mt-4">
-                            <label className="block">Name</label>
-                            <input type="name" placeholder="Name"
+                        <div className="flex w-full gap-1 mt-4">
+                        <div>
+                            <label className="block">FirstName</label>
+                            <input type="name" placeholder="Firstname"
                                 className="w-full px-4 py-2 mt-2 border rounded-sm focus:outline-none focus:ring-1 focus:ring-cyan-600" />
-                            <span className="text-xs tracking-wide text-red-600">Name is required </span>
+                            <span className="text-xs tracking-wide text-red-600">FirstName is required </span>
+                        </div>
+                        <div>
+                            <label className="block">LastName</label>
+                            <input type="name" placeholder="LastName"
+                                className="w-full px-4 py-2 mt-2 border rounded-sm focus:outline-none focus:ring-1 focus:ring-cyan-600" />
+                        </div>
                         </div>
                         <div className="mt-4">
                             <div>

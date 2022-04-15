@@ -1,9 +1,9 @@
 import { Header } from "../../components";
-import { Login } from "./Login";
+import {Login} from "./Login";
 import { Signup } from "./Signup";
 import { useLocation } from "react-router-dom";
 export const Auth = () => {
-    const location = useLocation();
+    const location=useLocation();
     console.log(location.pathname);
     return (
         <>
@@ -15,8 +15,8 @@ export const Auth = () => {
                             <img src="https://res.cloudinary.com/dgomw715r/image/upload/v1650011189/ProjectImages/loginbanner_nfmkwp.png" className="responsive" />
                         </div>
                     </div>
-                    {location.pathname === "/signup" ? <Signup /> : <Login />}
-                </div>
+                    {location.pathname==="/signup"?<Signup/>:<Login/>}
+                    </div>
             </main>
         </>
 

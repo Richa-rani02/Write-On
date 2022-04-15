@@ -24,6 +24,7 @@ export const authReducer = (state, action) => {
             }
         case authActions.LOGOUT:
             localStorage.removeItem("writeOnToken")
+            localStorage.removeItem("user_info")
             return {
                 ...state,
                 token: null,

@@ -1,6 +1,6 @@
 import axios from "axios";
-import { authActions } from "../Utils/actions";
-import { loginUrl,signupUrl } from "../Utils/apiUrl";
+import { authActions } from "../utils/actions";
+import { loginUrl,signupUrl } from "../utils/apiUrl";
 import toast from "react-hot-toast";
 
 export const userLogin = async (userDetails, authDispatch, navigate) => {

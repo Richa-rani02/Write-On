@@ -6,10 +6,10 @@ const NavRoutes=()=>{
         <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/mock" element={<Mockman />}/>
-        <Route path="/login" element={<Login/>}/>
+        <Route path="/login" element={<Auth/>}/>
         <Route path="/auth" element={<Auth/>}/>
         <Route path="/notes" element={<Notes/>}/>
-        <Route path="/signup" element={<Signup/>}/>
+        <Route path="/signup" element={<Auth/>}/>
         <Route path="/*" element={<NotFound/>}/>
       </Routes>
     )

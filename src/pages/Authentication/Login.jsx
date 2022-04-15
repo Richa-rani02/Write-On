@@ -1,4 +1,4 @@
-import { Header } from "../../components";
+
 import {Link} from "react-router-dom";
 export const Login = () => {
     return (
@@ -25,7 +25,7 @@ export const Login = () => {
                             </div>
                             
                             <div className="flex flex-col items-baseline">
-                            <Link to="/auth" className="text-sm text-cyan-600 hover:underline mt-4">Don't have an Account ? SIGNUP</Link>
+                            <Link to="/signup" className="text-sm text-cyan-600 hover:underline mt-4">Don't have an Account ? SIGNUP</Link>
                                 <button className="px-6 py-2 mt-6 w-full text-white bg-cyan-600 hover:bg-cyan-900">Login</button>
                                 <button className="px-6 py-2 mt-4 w-full text-purpleprimary hover:bg-cyan-900 hover:text-white border border-cyan-600">Guest Login</button>
                                 

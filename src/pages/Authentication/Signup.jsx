@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 export const Signup = () => {
     return (
         <>
@@ -27,9 +28,10 @@ export const Signup = () => {
                                 className="w-full px-4 py-2 mt-2 border rounded-sm focus:outline-none focus:ring-1 focus:ring-cyan-600" />
                             <span className="text-xs tracking-wide text-red-600">Password is required </span>
                         </div>
-                        <div className="flex items-baseline justify-between">
-                            <button className="px-6 py-2 mt-4 text-white bg-cyan-600 hover:bg-cyan-900">Signup</button>
-                            <a href="#" className="text-sm text-cyan-600 hover:underline">Already have an Account ? LOGIN</a>
+                        <div className="flex flex-col items-baseline">
+                        <Link to="/login" className="text-sm text-cyan-600 hover:underline mt-4">Already have an Account ? LOGIN</Link>
+                            <button className="px-6 py-2 mt-4 w-full text-white bg-cyan-600 hover:bg-cyan-900">SignUp</button>
+                            
                         </div>
                     </div>
                 </form>

@@ -28,7 +28,7 @@ export const authReducer = (state, action) => {
             return {
                 ...state,
                 token: null,
-                userDetails: null,
+                userDetails: "",
             }
 
         default:

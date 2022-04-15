@@ -39,7 +39,7 @@ let navigate=useNavigate();
                 <FaTrash size={24} className="fill-cyan-600" />
                 <span>Trash</span>
             </Link>
-            <hr class="my-4 text-cyan-700" />
+            <hr className="my-4 text-cyan-700" />
             {token ?
               <div className="font-medium flex justify-start items-center gap-4 rounded-tr-3xl rounded-br-3xl py-3 px-5 text-lg mt-1 hover:bg-blue-100 text-purpleprimary" onClick={logOutHandler}  >
                <RiLogoutCircleFill size={24} className="fill-cyan-600" />

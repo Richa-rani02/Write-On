@@ -9,7 +9,7 @@ const AuthProvider = ({ children }) => {
     const authInitialState = {
         error: "",
         token: getToken ?? '',
-        userDetails: getUserInfo || null,
+        userDetails: getUserInfo || "",
     };
 
     const [authState, authDispatch] = useReducer(authReducer, authInitialState);

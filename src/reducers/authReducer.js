@@ -6,7 +6,7 @@ export const authReducer = (state, action) => {
             return {
                 ...state,
                 loading: true,
-                error: null,
+                error: "",
             }
 
         case authActions.AUTH:

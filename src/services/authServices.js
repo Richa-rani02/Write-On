@@ -4,6 +4,7 @@ import { loginUrl,signupUrl } from "../utils/apiUrl";
 import toast from "react-hot-toast";
 
 export const userLogin = async (userDetails, authDispatch, navigate) => {
+    console.log(userDetails);
     authDispatch({ type: authActions.LOADING })
     const toastId = toast.loading("Logging in...");
 
@@ -21,7 +22,7 @@ export const userLogin = async (userDetails, authDispatch, navigate) => {
                 icon: "👋",
             });
             authDispatch({ type: authActions.AUTH, payload: { user: foundUser, token: encodedToken } })
-            navigate(-1);
+            navigate("/notes");
         }
     } catch (error) {
         console.log(error);

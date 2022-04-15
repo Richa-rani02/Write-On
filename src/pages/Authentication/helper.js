@@ -17,8 +17,8 @@ export const initialFormValues = {
       /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,10}$/;
     const EMAIL_REGEX = /^\S+@\S+\.\S+$/;
 
-    if (!values.firstName) {
-        errors.firstName = "Full name is required!";
+    if (!values.firstname) {
+        errors.firstname = "Full name is required!";
       }
     if(!values.email){
       errors.email = "Email is required!!";

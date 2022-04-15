@@ -7,14 +7,14 @@ const AuthProvider = ({ children }) => {
     const getToken = localStorage.getItem("writeOnToken");
     const getUserInfo = JSON.parse(localStorage.getItem("user_info"))
     const authInitialState = {
-        error: null,
+        error: "",
         token: getToken ?? '',
         userDetails: getUserInfo || null,
     };
 
     const [authState, authDispatch] = useReducer(authReducer, authInitialState);
     return (
-        <authContext.Provider value={{ authState, authDispatch }}>
+        <authContext.Provider value={{ authState, authDispatch}}>
             {children}
         </authContext.Provider>
     )

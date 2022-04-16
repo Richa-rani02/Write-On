@@ -1,13 +1,44 @@
-import { Header,Sidebar } from "../components"
-export const Notes=()=>{
-    return(
+import { Header, Sidebar } from "../components";
+import {IoMdAdd} from "react-icons/io";
+export const Notes = () => {
+    return (
         <div className="notes bg-[#FAFAFA] h-full w-screen">
-        <Header />
-        <Sidebar/>
-        <main className="ml-64 px-3 py-2">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat quasi nulla nisi libero deserunt autem animi sapiente corporis eligendi in ipsa, blanditiis explicabo quis voluptate harum cum! Adipisci harum neque necessitatibus minima, tenetur corrupti aspernatur, est esse nam vitae perferendis distinctio reiciendis sed cupiditate molestias odio, maxime soluta voluptas? Voluptas a officia dolorem cupiditate ducimus? Reprehenderit exercitationem aliquid asperiores voluptate magni, neque, quos ipsum tempora praesentium veritatis omnis est ducimus doloribus nesciunt cumque, placeat minus nostrum eius aspernatur beatae facilis culpa! Dolores possimus distinctio voluptates omnis asperiores corrupti labore et aut iusto doloremque nam aperiam, soluta reprehenderit totam illum eligendi accusantium recusandae quisquam cupiditate excepturi veritatis obcaecati harum dolorem perferendis? Saepe odio nisi vitae nam aut assumenda itaque vero consequuntur nulla, commodi rerum ratione cum incidunt fugiat qui perspiciatis reiciendis, magnam nobis in alias. At, mollitia voluptatum aperiam assumenda facilis quibusdam, ea sapiente consequuntur ullam libero maxime obcaecati, voluptatem quo culpa doloremque! Quam aliquam vitae modi necessitatibus iusto voluptatum nihil libero maxime aut labore omnis exercitationem laboriosam impedit possimus, velit eveniet ipsum dignissimos deserunt aliquid repudiandae, esse quos praesentium eos? Corporis soluta numquam exercitationem dolores? Dicta reiciendis sint saepe alias rem totam earum veniam aperiam impedit iusto animi explicabo, incidunt quia voluptas nostrum corrupti hic assumenda quidem asperiores et voluptate! Eius sit labore iusto. Repudiandae sequi cumque vero deserunt iusto odit similique veniam incidunt a saepe. Ipsum corrupti odit magni!pLorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat quasi nulla nisi libero deserunt autem animi sapiente corporis eligendi in ipsa, blanditiis explicabo quis voluptate harum cum! Adipisci harum neque necessitatibus minima, tenetur corrupti aspernatur, est esse nam vitae perferendis distinctio reiciendis sed cupiditate molestias odio, maxime soluta voluptas? Voluptas a officia dolorem cupiditate ducimus? Reprehenderit exercitationem aliquid asperiores voluptate magni, neque, quos ipsum tempora praesentium veritatis omnis est ducimus doloribus nesciunt cumque, placeat minus nostrum eius aspernatur beatae facilis culpa! Dolores possimus distinctio voluptates omnis asperiores corrupti labore et aut iusto doloremque nam aperiam, soluta reprehenderit totam illum eligendi accusantium recusandae quisquam cupiditate excepturi veritatis obcaecati harum dolorem perferendis? Saepe odio nisi vitae nam aut assumenda itaque vero consequuntur nulla, commodi rerum ratione cum incidunt fugiat qui perspiciatis reiciendis, magnam nobis in alias. At, mollitia voluptatum aperiam assumenda facilis quibusdam, ea sapiente consequuntur ullam libero maxime obcaecati, voluptatem quo culpa doloremque! Quam aliquam vitae modi necessitatibus iusto voluptatum nihil libero maxime aut labore omnis exercitationem laboriosam impedit possimus, velit eveniet ipsum dignissimos deserunt aliquid repudiandae, esse quos praesentium eos? Corporis soluta numquam exercitationem dolores? Dicta reiciendis sint saepe alias rem totam earum veniam aperiam impedit iusto animi explicabo, incidunt quia voluptas nostrum corrupti hic assumenda quidem asperiores et voluptate! Eius sit labore iusto. Repudiandae sequi cumque vero deserunt iusto odit similique veniam incidunt a saepe. Ipsum corrupti odit magni!p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe ab placeat ratione rerum optio quaerat adipisci corrupti incidunt commodi est quas quia pariatur quos quidem tenetur suscipit labore nihil, vero iusto obcaecati cumque consectetur repellat aut magnam. Quisquam quis ex dicta a nemo eligendi autem minima tempore, enim quos molestias eos praesentium unde aspernatur modi dolorem consequatur repellat aut voluptate voluptatum ut tenetur asperiores doloremque! Consequuntur, in iusto reiciendis at illum quasi veritatis omnis ipsum accusamus sequi tempore, blanditiis pariatur minima voluptatum excepturi laboriosam animi nihil, dignissimos maxime id possimus obcaecati? Fuga consequuntur cum odio dolor adipisci ipsa consequatur! Commodi odio repellendus aliquam enim earum sapiente expedita, debitis, ratione deserunt praesentium, voluptates provident veniam! Quod, nostrum commodi. Ad soluta delectus quam id velit voluptates, veritatis voluptate sit rerum doloremque hic sint expedita asperiores iste, in dolore dolor maxime quae eveniet. Esse reprehenderit exercitationem possimus porro laborum reiciendis ratione illo sit deleniti cupiditate facilis magni facere, ea eveniet nostrum, officiis numquam adipisci? Dolore, necessitatibus esse at voluptate laborum rerum asperiores accusantium voluptatum excepturi repellendus aspernatur inventore autem quod! Dolores velit provident, obcaecati vel soluta ad exercitationem voluptatum eius porro, ullam culpa iure delectus reprehenderit explicabo odit doloremque voluptatem reiciendis perferendis asperiores minima magni architecto expedita, veritatis numquam. Quam excepturi debitis laborum deleniti quis cum perspiciatis! Inventore, quo beatae! Sit necessitatibus facilis itaque, perferendis quisquam, beatae quam, similique iusto rerum nobis ab!</p>
-        </main>
-        
+            <Header />
+            <Sidebar />
+            {/* ml-64  */}
+            <main className="px-3 py-2 lg:ml-64 ml-0 md:ml-64">
+                <div class="flex flex-wrap lg:justify-between md:justify-between justify-center  items-center gap-4 mt-6 px-7 py-2 ">
+                    <div
+                        class="flex justify-center order-1"
+                    >
+                        <input type="search" placeholder="search here..." className="p-2 w-40 xl:w-72 border-b-2 border-cyan-500 bg-[#f5f3ff] rounded focus:outline-none"
+                        />
+                    </div>
+                    <div
+                        class="flex justify-center order-2 "
+                    >
+                        <button type="button" class="text-white mt-8 lg:mt-0  bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                          
+                           Add Notes
+                            <IoMdAdd size={22} className="ml-2"/>
+                        </button>
+                    </div>
+                    <div
+                        class="flex justify-center  xl:order-3 sm:order-4"
+                    >
+                        <div class="w-auto">
+                            <select class="form-select  block w-full px-3 py-1.5 text-base font-normaltext-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded m-0
+                           focus:text-gray-700 focus:bg-white focus:border-cyan-600 focus:outline-none" aria-label="Default select example">
+                                <option selected>Select Priority</option>
+                                <option value="1">High</option>
+                                <option value="2">Medium</option>
+                                <option value="3">Low</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
         </div>
     )
 }

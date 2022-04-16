@@ -1,0 +1,7 @@
+.ql-editor{
+    height: 10rem;
+    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    font-size: 1rem;
+  }

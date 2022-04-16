@@ -1,4 +1,4 @@
-import { Header, Sidebar,Note,LabelModal } from "../components";
+import { Header, Sidebar,Note,LabelModal,TextEditor} from "../components";
 import {IoMdAdd} from "react-icons/io";
 export const Notes = () => {
     return (
@@ -56,9 +56,10 @@ export const Notes = () => {
                 <Note/>
                 </div>
                 </div>
-               
             </main>
             <LabelModal/>
+            <TextEditor/>
+           
         </div>
          
     )

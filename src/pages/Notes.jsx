@@ -1,11 +1,10 @@
-import { Header, Sidebar } from "../components";
+import { Header, Sidebar,Note } from "../components";
 import {IoMdAdd} from "react-icons/io";
 export const Notes = () => {
     return (
         <div className="notes bg-[#FAFAFA] h-full w-screen">
             <Header />
             <Sidebar />
-            {/* ml-64  */}
             <main className="px-3 py-2 lg:ml-64 ml-0 md:ml-64">
                 <div class="flex flex-wrap lg:justify-between md:justify-between justify-center  items-center gap-4 mt-6 px-7 py-2 ">
                     <div
@@ -37,6 +36,27 @@ export const Notes = () => {
                         </div>
                     </div>
                 </div>
+                <div className="notes-list-container my-12 mx-5  p-3 ">
+                <h5>PINNED</h5>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-1">
+                <Note/>
+                <Note/>
+                <Note/>
+                <Note/>
+                <Note/>
+                </div>
+                </div>
+                <div className="notes-list-container my-12 mx-5  ">
+                <h5>OTHERS</h5>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <Note/>
+                <Note/>
+                <Note/>
+                <Note/>
+                <Note/>
+                </div>
+                </div>
+                
             </main>
 
         </div>

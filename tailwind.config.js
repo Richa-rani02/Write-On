@@ -4,14 +4,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-          colors: {
-         purpleprimary:"#18193d",
-         yellowprimary:'#FFB102'
+      colors: {
+        purpleprimary: "#18193d",
+        yellowprimary: '#FFB102',
+        'modal-rgba': 'rgba(0, 0, 0, 0.4)',
 
-    },
-    fontFamily: {
-      'Sail': ['Sail', 'cursive'] 
-    },
+      },
+      fontFamily: {
+        'Sail': ['Sail', 'cursive']
+      },
 
     },
   },

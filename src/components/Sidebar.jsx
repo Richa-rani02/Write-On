@@ -20,7 +20,7 @@ let navigate=useNavigate();
               navigate("/notes");
       }
     return (
-        <section className="sidebar fixed w-64 bg-neutral-50 h-full pt-5 ">
+        <section className="sidebar fixed w-64 bg-neutral-50 h-full pt-5 z-40 lg:z-0 ">
             <Link to="/" className="font-medium flex justify-start items-center gap-4 rounded-tr-3xl rounded-br-3xl py-3 px-5 text-lg hover:bg-blue-100 text-purpleprimary">
                 <FaHome size={24} className="fill-cyan-600" />
                 <span >Home</span>

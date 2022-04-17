@@ -1,3 +1,4 @@
+import { BsFillPinFill } from "react-icons/bs";
 export const Note=()=>{
 
     const colors = [
@@ -26,8 +27,12 @@ export const Note=()=>{
      <div className = "w-full flex flex-col bg-white min-h-[15rem] rounded-md shadow-lg">
             <div className = "card-top w-full h-[2%] rounded-tl-md rounded-tr-md" style={{"background-color": "pink"}}></div>
             <div class = "task-holder w-full h-[98%] flex flex-col justify-around p-1">
-                <span class = "note-card-label max-w-[6rem] mb-2.5 h-9 rounded-3xl flex items-center justify-center" style={{"backgroundColor": "red"}}> label
+                <div className="flex justify-between items-center">
+                <span class = "note-card-label min-w-[6rem] mb-2.5 h-9 rounded-3xl flex items-center justify-center" style={{"backgroundColor": "red"}}> label
                 </span>
+                <BsFillPinFill />
+                </div>
+                
                 <h4 className="note-card-title">test</h4>
                 <p className = "note-card-desc mt-1"style={{"background-color": ""}}>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, excepturi!

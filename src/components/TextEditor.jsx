@@ -4,8 +4,8 @@ import { BiArchiveIn } from "react-icons/bi";
 import { IoColorPalette } from "react-icons/io5";
 import { useNotes } from '../context/notes-context';
 import { useGlobalContext } from '../context/global-context';
-
 import { ColorPicker } from './index';
+
 export const TextEditor = () => {
 
   const { label } = useNotes();

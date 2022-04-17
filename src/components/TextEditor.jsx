@@ -8,7 +8,7 @@ export const TextEditor=()=>{
     const [priority, setPriority] = useState(["priority","low", "medium", "High"]);
 
     return (
-        <div className="fixed w-full h-full top-0 left-0 z-50 flex items-center justify-center bg-modal-rgba">
+        <div className="hidden w-full h-full top-0 left-0 z-50 flex items-center justify-center bg-modal-rgba">
          <form className="lg:w-[50%] flex-wrap p-2 justify-self-center rounded relative bg-white shadow-lg">
          <div className="flex items-center justify-between input__pin mb-4 ">
 

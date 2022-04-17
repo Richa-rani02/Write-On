@@ -7,11 +7,17 @@ const GlobalProvider=({children})=>{
 const [labelModal,setLabelModal]=useState(false);
 const [notesModal,setNotesModal]=useState(false);    
 
-const toogleLabelModal=()=>setLabelModal(prev=>!prev);
-const tooglenotesModal=()=>setNotesModal(prev=>!prev);
+const toogleLabelModal=(e)=>{
+    e.preventDefault();
+    setLabelModal(prev=>!prev)
+};
+const tooglenotesModal=(e)=>{
+    e.preventDefault();
+    setNotesModal(prev=>!prev)
+};
 
     return (
-        <GlobalContext.Provider value={{labelModal,notesModal,toogleLabelModal,tooglenotesModal}}>
+        <GlobalContext.Provider value={{labelModal,notesModal,toogleLabelModal,tooglenotesModal,setNotesModal}}>
             {children}
         </GlobalContext.Provider>
     )

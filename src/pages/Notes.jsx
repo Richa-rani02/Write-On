@@ -1,6 +1,9 @@
 import { Header, Sidebar,Note,LabelModal,TextEditor} from "../components";
 import {IoMdAdd} from "react-icons/io";
+import { useGlobalContext } from "../context/global-context";
 export const Notes = () => {
+
+const {tooglenotesModal}=useGlobalContext();
     return (
         <div className="notes bg-[#FAFAFA] h-full w-screen">
             <Header />
@@ -16,8 +19,7 @@ export const Notes = () => {
                     <div
                         class="flex justify-center order-2 "
                     >
-                        <button type="button" class="text-white mt-8 lg:mt-0  bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 relative">
-                          
+                        <button type="button" class="text-white mt-8 lg:mt-0  bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 relative" onClick={tooglenotesModal}>
                            Add Notes
                             <IoMdAdd size={22} className="ml-2"/>
                         </button>

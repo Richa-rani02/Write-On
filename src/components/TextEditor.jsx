@@ -1,12 +1,11 @@
-import ReactQuill from 'react-quill';
-import "./TextEditor.css";
-import 'react-quill/dist/quill.snow.css'; 
 import { useState } from 'react';
 import { BsFillPinFill } from "react-icons/bs";
 import { BiArchiveIn } from "react-icons/bi";
 import { IoColorPalette } from "react-icons/io5";
+import { ColorPicker } from './index';
 export const TextEditor=()=>{
-    const [labels, setLabels] = useState(["work", "Test", "test1"]);
+    const [labels, setLabels] = useState(["label","work", "Test", "test1"]);
+    const [priority, setPriority] = useState(["priority","low", "medium", "High"]);
 
     return (
         <div className="fixed w-full h-full top-0 left-0 z-50 flex items-center justify-center bg-modal-rgba">
@@ -33,10 +32,10 @@ export const TextEditor=()=>{
           onChange="{changeHandler}"
         ></textarea>
           <div className="notesbtn px-2 py-3 border-t border-solid border-[rgba(95, 99, 104, 0.157)] flex items-center justify-between">
-            <div className="btn-left flex items-center gap-1 lg:gap-3 text-xl mr-3">
+            <div className="btn-left flex items-center gap-1 lg:gap-3 text-lg mr-3">
               <div class="btn-container w-10 h-10 flex items-center justify-center flex-wrap relative rounded-full hover:bg-blue-100">
                 <IoColorPalette />
-                {/* <ColorPicker /> */}
+                <ColorPicker />
               </div>
               <div class="btn-container w-10 h-10 flex items-center justify-center flex-wrap relative rounded-full hover:bg-blue-100">
                 <BiArchiveIn />
@@ -55,9 +54,23 @@ export const TextEditor=()=>{
                   );
                 })}
               </select>
+              <select
+                className="priority-container px-1.5 border border-solid border-black rounded-3xl"
+                onChange=""
+                value=""
+                name="priorityselector"
+              >
+                {priority.map((priority) => {
+                  return (
+                    <option key={priority} value={priority}>
+                      {priority}
+                    </option>
+                  );
+                })}
+              </select>
             </div>
             <div className="btn-right">
-              <button class="add border-0 outline-0 px-2.5 py-1 rounded-3xl text-xl bg-blue-100  " onClick="{AddNotes}">Close</button>
+              <button class="add border-0 outline-0 px-2.5 py-1 rounded-3xl text-lg bg-blue-100  " onClick="{AddNotes}">Close</button>
             </div>
           </div>
           </form>

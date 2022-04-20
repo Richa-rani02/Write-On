@@ -1,6 +1,8 @@
 import { createContext, useContext, useState, useRef,useReducer } from "react";
 import { useEffect } from "react";
 import { notesReducer } from "../reducers/notesReducer";
+import {getNotes} from "../services/notesServices";
+import { useAuth } from "./auth-context";
 
 export const NotesContext = createContext({});
 
@@ -8,6 +10,7 @@ const NotesProvider = ({ children }) => {
 
     const [label, setLabel] = useState(["none"]);
 
+    const {authState:{token}}=useAuth();
     const initialNotesValue={
         loading:false,
         error:"",
@@ -24,7 +27,7 @@ const NotesProvider = ({ children }) => {
             let data = JSON.parse(labelarr)
             setLabel(data)
         }
-
+        getNotes(token,notesDispatch);
     }, [])
 
     const addLabel = (inputValue) => {
@@ -34,7 +37,6 @@ const NotesProvider = ({ children }) => {
         setLabel(label);
         inputValue.current.value = "";
     }
-
     return (
         <NotesContext.Provider value={{ label, addLabel,notesState,notesDispatch }}>
             {children}

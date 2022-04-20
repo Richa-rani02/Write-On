@@ -15,6 +15,12 @@ export const notesReducer=(state,action)=>{
                 error:payload
             }
         }
+        case notesActions.GET_NOTES:{
+            return{
+                ...state,
+                notesList:payload
+            }
+        }
     }
 
 }

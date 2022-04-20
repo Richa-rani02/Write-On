@@ -1,9 +1,11 @@
 import { Header, Sidebar,Note,LabelModal,TextEditor} from "../components";
 import {IoMdAdd} from "react-icons/io";
 import { useGlobalContext } from "../context/global-context";
+import {useNotes} from "../context/notes-context";
 export const Notes = () => {
 
 const {tooglenotesModal}=useGlobalContext();
+const {notesState:{notesList}}=useNotes();
     return (
         <div className="notes bg-[#FAFAFA] h-full w-screen">
             <Header />
@@ -40,17 +42,15 @@ const {tooglenotesModal}=useGlobalContext();
                 </div>
                 <div className="notes-list-container my-12 mx-5  p-3 ">
                 <h5>PINNED</h5>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-                <Note/>
-                <Note/>
-                <Note/>
-                <Note/>
-                <Note/>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+                {notesList.map((note)=>(
+                   <Note key={note.id} notes={note}/> 
+                ))}
                 </div>
                 </div>
                 <div className="notes-list-container my-12 mx-5 p-3 ">
                 <h5>OTHERS</h5>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
                 <Note/>
                 <Note/>
                 <Note/>

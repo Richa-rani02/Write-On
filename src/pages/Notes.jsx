@@ -26,9 +26,7 @@ const {notesState:{notesList}}=useNotes();
                             <IoMdAdd size={22} className="ml-2"/>
                         </button>
                     </div>
-                    <div
-                        class="flex justify-center  xl:order-3 sm:order-4"
-                    >
+                    <div class="flex justify-center  xl:order-3 sm:order-4">
                         <div class="w-auto">
                             <select class="form-select  block w-full px-3 py-1.5 text-base font-normaltext-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded m-0
                            focus:text-gray-700 focus:bg-white focus:border-cyan-600 focus:outline-none" aria-label="Default select example">

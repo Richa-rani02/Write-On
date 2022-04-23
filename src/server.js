@@ -15,6 +15,12 @@ import {
   getAllNotesHandler,
   updateNoteHandler,
 } from "./backend/controllers/NotesController";
+import {
+  getAlltrashedNotesHandler,
+  deleteFromTrashHandler,
+  restoreFromTrashHandler,
+
+} from "./backend/controllers/TrashController";
 import { users } from "./backend/db/users";
 
 export function makeServer({ environment = "development" } = {}) {
@@ -62,6 +68,17 @@ export function makeServer({ environment = "development" } = {}) {
       this.delete(
         "/archives/delete/:noteId",
         deleteFromArchivesHandler.bind(this)
+      );
+
+      //trash notes
+      this.get("/trash",  getAlltrashedNotesHandler.bind(this));
+      this.post(
+        "/trash/restore/:noteId",
+        restoreFromTrashHandler.bind(this)
+      );
+      this.delete(
+        "/trash/delete/:noteId",
+        deleteFromTrashHandler.bind(this)
       );
     },
   });

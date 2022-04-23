@@ -33,7 +33,7 @@ export const notesReducer=(state,action)=>{
             return{
                 ...state,
                 notesList:payload.notes,
-                trashList:payload.notes
+                trashList:payload.trash
             }
         }
     }

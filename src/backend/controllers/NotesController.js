@@ -169,6 +169,12 @@ export const archiveNoteHandler = function (schema, request) {
   }
 };
 
+/**
+ * This handler handles moving notes to trash
+ ** send POST Request at /api/notes/trash/:noteId
+ * body contains {note}
+ * */
+
 export const trashNoteHandler = function (schema, request) {
   const user = requiresAuth.call(this, request);
   try {

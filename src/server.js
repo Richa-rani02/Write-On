@@ -14,6 +14,7 @@ import {
   deleteNoteHandler,
   getAllNotesHandler,
   updateNoteHandler,
+  trashNoteHandler,
 } from "./backend/controllers/NotesController";
 import { users } from "./backend/db/users";
 
@@ -36,6 +37,7 @@ export function makeServer({ environment = "development" } = {}) {
           ...item,
           notes: [],
           archives: [],
+          trash:[],
         })
       );
     },
@@ -52,6 +54,7 @@ export function makeServer({ environment = "development" } = {}) {
       this.post("/notes/:noteId", updateNoteHandler.bind(this));
       this.delete("/notes/:noteId", deleteNoteHandler.bind(this));
       this.post("/notes/archives/:noteId", archiveNoteHandler.bind(this));
+      this.post("/notes/trash/:noteId", trashNoteHandler.bind(this));
 
       // archive routes (private)
       this.get("/archives", getAllArchivedNotesHandler.bind(this));

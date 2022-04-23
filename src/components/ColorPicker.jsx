@@ -4,36 +4,36 @@ export const ColorPicker = ({ palleteActive, setPalleteActive, setNotes, notes }
 
   const colorsData = [
     {
-      primaryColor: "#5D93E1",
-      secondaryColor: "#ECF3FC"
+      primaryColor: "#ECF3FC",
+      secondaryColor: "#5D93E1"
     },
     {
-      primaryColor: "#F9D288",
-      secondaryColor: "#FEFAF1"
+      primaryColor: "#FEFAF1",
+      secondaryColor: "#F9D288"
     },
     {
-      primaryColor: "#5DC250",
-      secondaryColor: "#F2FAF1"
+      primaryColor: "#F2FAF1",
+      secondaryColor: "#5DC250"
     },
     {
-      primaryColor: "#F48687",
-      secondaryColor: "#FDF1F1"
+      primaryColor: "#FDF1F1",
+      secondaryColor: "#F48687"
     },
     {
-      primaryColor: "#B964F7",
-      secondaryColor: "#F3F0FD"
+      primaryColor: "#F3F0FD",
+      secondaryColor: "#B964F7"
     },
      {
-      primaryColor: "#f0abfc",
-      secondaryColor: "#fae8ff"
+      primaryColor: "#fae8ff",
+      secondaryColor: "#f0abfc"
     }, 
     {
-      primaryColor: "#fdba74",
-      secondaryColor: "#ffedd5"
+      primaryColor: "#ffedd5",
+      secondaryColor:"#fdba74"
     },
      {
-      primaryColor: "#f9a8d4",
-      secondaryColor: "#fce7f3"
+      primaryColor: "#fce7f3",
+      secondaryColor: "#f472b6"
     }
   ];
 
@@ -47,7 +47,7 @@ export const ColorPicker = ({ palleteActive, setPalleteActive, setNotes, notes }
       {colorsData.map((color) => (
         <div className="rounded-full"
           style={{
-            backgroundColor: color.primaryColor,
+            backgroundColor: color.secondaryColor,
           }} onClick={() => chooseColor(color)}
         >
 

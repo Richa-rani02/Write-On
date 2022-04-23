@@ -41,21 +41,10 @@ const {notesState:{notesList}}=useNotes();
                     </div>
                 </div>
                 <div className="notes-list-container my-12 mx-5  p-3 ">
-                <h5>PINNED</h5>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
                 {notesList.map((note)=>(
                    <Note key={note.id} notes={note}/> 
                 ))}
-                </div>
-                </div>
-                <div className="notes-list-container my-12 mx-5 p-3 ">
-                <h5>OTHERS</h5>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-                <Note/>
-                <Note/>
-                <Note/>
-                <Note/>
-                <Note/>
                 </div>
                 </div>
             </main>

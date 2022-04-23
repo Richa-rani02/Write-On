@@ -45,9 +45,6 @@ export const TextEditor = () => {
             name="title"
             onChange={(e)=>{setNotes({...notes,title:e.target.value})}} className='w-full border-none outline-none focus:outline-none'
           />
-          <div class="btn-container w-10 h-10 flex items-center justify-center flex-wrap relative rounded-full hover:bg-blue-100 ">
-            <BsFillPinFill />
-          </div>
         </div>
         <textarea
           value={notes.description}

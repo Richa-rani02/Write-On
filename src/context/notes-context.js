@@ -8,7 +8,7 @@ export const NotesContext = createContext({});
 
 const NotesProvider = ({ children }) => {
 
-    const [label, setLabel] = useState(["none"]);
+    const [label, setLabel] = useState([]);
 
     const {authState:{token}}=useAuth();
     const initialNotesValue={

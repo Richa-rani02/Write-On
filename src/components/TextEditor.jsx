@@ -10,27 +10,33 @@ import { addToNotes } from '../services/notesServices';
 
 export const TextEditor = () => {
   let date= new Date().toLocaleDateString();
-  const { label,notesState,notesDispatch} = useNotes();
+  const { label,notesDispatch} = useNotes();
   const {notesModal,tooglenotesModal,setNotesModal}=useGlobalContext();
   const {authState:{token}}=useAuth();
   const [palleteActive,setPalleteActive]=useState(false);
- 
   const [priority, setPriority] = useState(["Priority", "Low", "Medium", "High"]);
-  const [notes,setNotes]=useState({
-    title:"",
-    description:"",
-    tags:[],
-    Color:{tagColor:"#fafafa", bgColor:"#e4e4e7"},
-    priority:"",
-    createdTime:date
-  })
+  const noteInput={
+      title:"",
+      description:"",
+      tags:[],
+      Color:{tagColor:"#a1a1aa", bgColor:"#f4f4f5"},
+      priority:"",
+      createdTime:date,
+      error:"",
+  }
+  const [notes,setNotes]=useState({...noteInput})
 
 
  const AddNotes=(e)=>{
    e.preventDefault();
-   console.log(notes);
-   addToNotes(token,notesDispatch,notes);
-   setNotesModal(prev=>!prev);
+   if(notes.title.length==0 && notes.description.length==0){
+     setNotes({...notes,error:"Title and description is Blank"})
+   }else{
+    addToNotes(token,notesDispatch,notes);
+    setNotesModal(prev=>!prev);
+    setNotes(noteInput);
+   }
+   
  }
 
   return (
@@ -46,6 +52,7 @@ export const TextEditor = () => {
             onChange={(e)=>{setNotes({...notes,title:e.target.value})}} className='w-full border-none outline-none focus:outline-none'
           />
         </div>
+        
         <textarea
           value={notes.description}
           name="description"
@@ -53,6 +60,7 @@ export const TextEditor = () => {
           rows="3" className="input-textarea w-full border-none outline-none focus:outline-none max-h-[3rem] "
           onChange={(e)=>{setNotes({...notes,description:e.target.value})}}
         ></textarea>
+        <p className='text-red-500'>{notes.error}</p>
         <div className="notesbtn px-2 py-3 border-t border-solid border-[rgba(95, 99, 104, 0.157)] flex items-center justify-between">
           <div className="btn-left flex items-center gap-1 lg:gap-3 text-lg mr-3">
             <div class="btn-container w-10 h-10 flex items-center justify-center flex-wrap relative rounded-full hover:bg-blue-100">

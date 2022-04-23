@@ -1,7 +1,24 @@
-
-import {FaSignal} from "react-icons/fa";
+import {isInList} from "../utils/helper";
+import {FaSignal,FaTrashAlt} from "react-icons/fa";
+import { useNotes } from "../context/notes-context";
+import {archiveNotes } from '../services/notesServices';
+import { useAuth } from "../context/auth-context";
+import { BiArchiveIn,BiEdit } from "react-icons/bi";
+import {MdOutlineUnarchive} from "react-icons/md";
 export const Note = ({notes}) => {
 
+    const {notesState:{archiveList,trashList},notesDispatch} = useNotes();
+    const {authState:{token}}=useAuth();
+ const isInArchive=isInList(archiveList,notes._id);
+
+
+const archiveHandler=()=>{
+    token
+        ? isInArchive
+            ? removeFromWatchLater(notesDispatch, token, id)
+            : archiveNotes(token,notesDispatch,notes,notes._id)
+        : navigate("/login")
+}
 
    return notes ? (
         <div className="w-full flex flex-col bg-white min-h-[13rem] rounded-md shadow-lg">
@@ -25,10 +42,15 @@ export const Note = ({notes}) => {
                 <p className="text-xs mr-1">{notes.priority}</p>
                  </>}
                  
-                <div className="note-card-btn ml-auto mt-1 ">
-                    <i className="fa fa-archive mr-3" style={{ "color":notes.Color.tagColor, "cursor": "pointer" }} onClick=""></i>
-                    <i className="far fa-edit mr-3" style={{ "color":notes.Color.tagColor, "cursor": "pointer" }} onClick=""></i>
-                    <i className="fas fa-trash-alt" style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} onClick=""></i>
+                <div className="note-card-btn ml-auto mt-1 flex ">
+                   {isInArchive ? <MdOutlineUnarchive className="mr-3" size={22} style={{ "color":"red", "cursor": "pointer" }} onClick={()=>archiveHandler()}/>:
+                   <>
+                    <BiArchiveIn className="mr-3" size={22} style={{ "color":notes.Color.tagColor, "cursor": "pointer" }} onClick={()=>archiveHandler()}/>
+                    <BiEdit className="mr-3" size={22} style={{ "color":notes.Color.tagColor, "cursor": "pointer" }} onClick=""/>
+                   </>
+                   
+                  }
+                    <FaTrashAlt className="mr-3" size={22} style={{ "color":notes.Color.tagColor, "cursor": "pointer" }} onClick=""/>
                 </div>
                 </div>
             </div>

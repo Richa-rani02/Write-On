@@ -1,7 +1,8 @@
 import { Header, Sidebar,Note} from "../components";
 import {useNotes} from "../context/notes-context";
 export const Archive=()=>{
-    const {notesState:{notesList}}=useNotes();
+    const {notesState:{archiveList}}=useNotes();
+    console.log(archiveList);
     return (
         <div className="notes bg-[#FAFAFA] h-full w-screen">
             <Header />
@@ -10,7 +11,7 @@ export const Archive=()=>{
                
                  <div className="notes-list-container my-12 mx-5  p-3 ">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-                {notesList.map((note)=>(
+                {archiveList.map((note)=>(
                    <Note key={note.id} notes={note}/> 
                 ))}
                 </div>

@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 export const addToNotes = async (token, notesDispatch, note) => {
     try {
-        const response = await axios.post(notesUrl, {
+        const  {data:{notes},status} = await axios.post(notesUrl, {
             note:note
         }, {
             headers: {
@@ -13,9 +13,9 @@ export const addToNotes = async (token, notesDispatch, note) => {
             }
         }
         );
-        if (response.status === 200 || response.status === 201) {
+        if (status === 200 ||status === 201) {
             toast.success("Notes added ");
-            notesDispatch({ type: notesActions.ADD_NOTES, payload: response.data.notes });
+            notesDispatch({ type: notesActions.ADD_NOTES, payload:notes });
         }
     } catch (error) {
         toast.error("Some error occured. Try Again:( ");
@@ -25,14 +25,14 @@ export const addToNotes = async (token, notesDispatch, note) => {
 
 export const getNotes = async (token, notesDispatch) => {
     try {
-        const response = await axios.get(notesUrl, {
+        const {data:{notes},status} = await axios.get(notesUrl, {
             headers: {
                 authorization: token
             }
         }
         );
-        if (response.status === 200 || response.status === 201) {
-            notesDispatch({ type: notesActions.GET_NOTES, payload: response.data.notes });
+        if (status === 200 ||status === 201) {
+            notesDispatch({ type: notesActions.GET_NOTES, payload:[...notes] });
         }
     } catch (error) {
         toast.error("Some error occured. Try Again:( ");
@@ -40,9 +40,12 @@ export const getNotes = async (token, notesDispatch) => {
     }
 }
 
-export const archiveNotes = async (token, notesDispatch, note,id) => {
+export const archiveNotes = async (token, notesDispatch, note, id) => {
+    console.log(note);
+    console.log(id);
+    // /api/notes/archives/
     try {
-        const response = await axios.post(`/api/notes/archive/${id}`, {
+        const {data:{archives,notes},status} = await axios.post(`/api/notes/archives/${id}`, {
             note:note
         }, {
             headers: {
@@ -50,12 +53,13 @@ export const archiveNotes = async (token, notesDispatch, note,id) => {
             }
         }
         );
-        if (response.status === 200 || response.status === 201) {
+        if (status === 200 || status === 201) {
             toast.success("Notes archived");
-            notesDispatch({ type: notesActions.ARCHIVE_NOTES, payload: response.data.archives });
+            notesDispatch({ type: notesActions.ARCHIVE_NOTES, payload:{ notes:notes, archives:archives } });
         }
     } catch (error) {
         toast.error("Some error occured. Try Again:( ");
+        console.log(error);
         notesDispatch({ type: notesActions.ERROR, payload: error.response });
     }
 }

@@ -2,6 +2,7 @@ import { notesActions } from "../utils/actions";
 export const notesReducer=(state,action)=>{
   
     const {type,payload}=action;
+    console.log(payload);
     switch(type){
         case notesActions.ADD_NOTES:{
             return{
@@ -24,7 +25,8 @@ export const notesReducer=(state,action)=>{
         case notesActions.ARCHIVE_NOTES:{
             return{
                 ...state,
-                archiveList:payload
+                notesList:payload.notes,
+                archiveList:payload.archives
             }
         }
     }

@@ -6,11 +6,12 @@ import { useNotes } from '../context/notes-context';
 import { useGlobalContext } from '../context/global-context';
 import { useAuth } from '../context/auth-context';
 import { ColorPicker } from './index';
-import { addToNotes } from '../services/notesServices';
+import { addToNotes,archiveNotes } from '../services/notesServices';
+
 
 export const TextEditor = () => {
   let date= new Date().toLocaleDateString();
-  const { label,notesDispatch} = useNotes();
+  const { label,notesState:{archiveList,trashList},notesDispatch} = useNotes();
   const {notesModal,tooglenotesModal,setNotesModal}=useGlobalContext();
   const {authState:{token}}=useAuth();
   const [palleteActive,setPalleteActive]=useState(false);
@@ -25,7 +26,6 @@ export const TextEditor = () => {
       error:"",
   }
   const [notes,setNotes]=useState({...noteInput})
-
 
  const AddNotes=(e)=>{
    e.preventDefault();
@@ -66,9 +66,6 @@ export const TextEditor = () => {
             <div class="btn-container w-10 h-10 flex items-center justify-center flex-wrap relative rounded-full hover:bg-blue-100">
               <IoColorPalette onClick={()=>setPalleteActive(prev=>!prev)} />
               <ColorPicker palleteActive={palleteActive} setPalleteActive={setPalleteActive} setNotes={setNotes} notes={notes}  />
-            </div>
-            <div class="btn-container w-10 h-10 flex items-center justify-center flex-wrap relative rounded-full hover:bg-blue-100">
-              <BiArchiveIn />
             </div>
             {label.length>0 &&
               <select

@@ -1,10 +1,10 @@
 import { isInList } from "../utils/helper";
 import { FaSignal, FaTrashAlt } from "react-icons/fa";
 import { useNotes } from "../context/notes-context";
-import { archiveNotes,trashNotes } from '../services/notesServices';
+import { archiveNotes, trashNotes } from '../services/notesServices';
 import { useAuth } from "../context/auth-context";
 import { BiArchiveIn, BiEdit } from "react-icons/bi";
-import { MdOutlineUnarchive } from "react-icons/md";
+import { MdOutlineUnarchive, MdRestoreFromTrash, MdDeleteForever } from "react-icons/md";
 export const Note = ({ notes }) => {
 
     const { notesState: { archiveList, trashList }, notesDispatch } = useNotes();
@@ -26,7 +26,7 @@ export const Note = ({ notes }) => {
                 ? removeFromWatchLater(notesDispatch, token, id)
                 : trashNotes(token, notesDispatch, notes, notes._id)
             : navigate("/login")
-}
+    }
 
     return notes ? (
         <div className="w-full flex flex-col bg-white min-h-[13rem] rounded-md shadow-lg">
@@ -51,14 +51,33 @@ export const Note = ({ notes }) => {
                         </>}
 
                     <div className="note-card-btn ml-auto mt-1 flex ">
-                        {isInArchive ? <MdOutlineUnarchive className="mr-3" size={22} style={{ "color": "red", "cursor": "pointer" }} onClick={() => archiveHandler()} /> :
+
+                        {isInTrash ?
                             <>
-                                <BiArchiveIn className="mr-3" size={22} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} onClick={() => archiveHandler()} />
-                                <BiEdit className="mr-3" size={22} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} onClick="" />
+                                <MdRestoreFromTrash className="mr-3" size={24} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} />
+                                <MdDeleteForever className="mr-3" size={24} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} />
+                            </>
+                            :
+                            <>
+                                {isInArchive ? <MdOutlineUnarchive className="mr-3" size={22} style={{ "color": "red", "cursor": "pointer" }} onClick={() => archiveHandler()} /> :
+                                    <>
+                                        <BiArchiveIn className="mr-3" size={22} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} onClick={() => archiveHandler()} />
+                                        <BiEdit className="mr-3" size={22} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} onClick="" />
+                                    </>
+                                }
+                                <FaTrashAlt className="mr-3" size={22} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} onClick={() => trashHandler()} />
                             </>
 
                         }
+
+                        {/* {isInTrash ?
+                        <>
+                         <MdRestoreFromTrash className="mr-3" size={24} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }}/>
+                         <MdDeleteForever className="mr-3" size={24} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }}/>
+                         </>
+                        :
                         <FaTrashAlt className="mr-3" size={22} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} onClick={()=>trashHandler()} />
+                        } */}
                     </div>
                 </div>
             </div>

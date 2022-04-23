@@ -21,6 +21,12 @@ export const notesReducer=(state,action)=>{
                 notesList:payload
             }
         }
+        case notesActions.ARCHIVE_NOTES:{
+            return{
+                ...state,
+                archiveList:payload
+            }
+        }
     }
 
 }

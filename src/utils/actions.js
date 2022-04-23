@@ -11,6 +11,7 @@ export const notesActions = {
     GET_NOTES:"GET_NOTES",
     DELETE_NOTES:"DELETE_NOTES",
     EDIT_NOTES:"EDIT_NOTES",
-    ERROR: "ERROR"
-    
+    ERROR: "ERROR",
+    ARCHIVE_NOTES:"ARCHIVE_NOTES",
+    TRASH_NOTES:"TRASH_NOTES",   
 }

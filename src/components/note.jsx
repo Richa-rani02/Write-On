@@ -26,7 +26,7 @@ export const Note = ({notes}) => {
                  </>}
                  
                 <div className="note-card-btn ml-auto mt-1 ">
-                <i className="fa fa-archive mr-3" style={{ "color":notes.Color.tagColor, "cursor": "pointer" }} onClick=""></i>
+                    <i className="fa fa-archive mr-3" style={{ "color":notes.Color.tagColor, "cursor": "pointer" }} onClick=""></i>
                     <i className="far fa-edit mr-3" style={{ "color":notes.Color.tagColor, "cursor": "pointer" }} onClick=""></i>
                     <i className="fas fa-trash-alt" style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} onClick=""></i>
                 </div>

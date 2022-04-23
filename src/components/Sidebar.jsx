@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { BiArchiveIn } from "react-icons/bi";
 import { FaHome, FaTrash } from "react-icons/fa";
-import { MdNewLabel } from "react-icons/md";
+import { MdNewLabel,MdSpeakerNotes } from "react-icons/md";
 import { RiLoginCircleFill, RiLogoutCircleFill } from "react-icons/ri";
 import { useAuth } from "../context/auth-context";
 import toast from "react-hot-toast";
@@ -32,13 +32,17 @@ export const Sidebar = () => {
                 <MdNewLabel size={24} className="fill-cyan-600" />
                 <span >Labels</span>
             </div>
+            <Link to="/notes" className="font-medium flex justify-start items-center gap-4 rounded-tr-3xl rounded-br-3xl py-3 px-5 text-lg mt-1 hover:bg-blue-100 text-purpleprimary">
+                <MdSpeakerNotes size={24} className="fill-cyan-600" />
+                <span >Notes</span>
+            </Link>
 
-            <Link to="/" className="font-medium flex justify-start items-center gap-4 rounded-tr-3xl rounded-br-3xl py-3 px-5 text-lg mt-1 hover:bg-blue-100 text-purpleprimary">
+            <Link to="/archive" className="font-medium flex justify-start items-center gap-4 rounded-tr-3xl rounded-br-3xl py-3 px-5 text-lg mt-1 hover:bg-blue-100 text-purpleprimary">
                 <BiArchiveIn size={24} className="fill-cyan-600" />
                 <span >Archive</span>
             </Link>
 
-            <Link to="/" className="font-medium flex justify-start items-center gap-4 rounded-tr-3xl rounded-br-3xl py-3 px-5 text-lg mt-1 hover:bg-blue-100 text-purpleprimary">
+            <Link to="/trash" className="font-medium flex justify-start items-center gap-4 rounded-tr-3xl rounded-br-3xl py-3 px-5 text-lg mt-1 hover:bg-blue-100 text-purpleprimary">
                 <FaTrash size={24} className="fill-cyan-600" />
                 <span>Trash</span>
             </Link>

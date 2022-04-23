@@ -4,3 +4,5 @@
  export {Signup} from "./Authentication/Signup";
  export {Auth} from "./Authentication/Auth";
  export {NotFound} from "./NotFound";
+ export {Archive} from "./Archive";
+ export {Trash} from "./Trash";

@@ -15,6 +15,8 @@ const NotesProvider = ({ children }) => {
         loading:false,
         error:"",
         notesList:[],
+        archiveList:[],
+        trashList:[],
     }
 
     const [notesState,notesDispatch]=useReducer(notesReducer,initialNotesValue);

@@ -2,7 +2,6 @@ import { Header, Sidebar,Note} from "../components";
 import {useNotes} from "../context/notes-context";
 export const Archive=()=>{
     const {notesState:{archiveList}}=useNotes();
-    console.log(archiveList);
     return (
         <div className="notes bg-[#FAFAFA] h-full w-screen">
             <Header />

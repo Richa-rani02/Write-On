@@ -43,7 +43,6 @@ export const getNotes = async (token, notesDispatch) => {
 export const archiveNotes = async (token, notesDispatch, note, id) => {
     console.log(note);
     console.log(id);
-    // /api/notes/archives/
     try {
         const {data:{archives,notes},status} = await axios.post(`/api/notes/archives/${id}`, {
             note:note
@@ -59,8 +58,27 @@ export const archiveNotes = async (token, notesDispatch, note, id) => {
         }
     } catch (error) {
         toast.error("Some error occured. Try Again:( ");
-        console.log(error);
-        notesDispatch({ type: notesActions.ERROR, payload: error.response });
+        notesDispatch({ type: notesActions.ERROR, payload: error});
+    }
+}
+
+export const trashNotes = async (token, notesDispatch, note, id) => {
+    console.log(note);
+    console.log(id);
+    try {
+        const {data:{notes},status} = await axios.delete(`/api/notes/${id}`,{
+            headers: {
+                authorization: token
+            }
+        }
+        );
+        if (status === 200 || status === 201) {
+            toast.success("Notes moved to trash");
+            notesDispatch({ type: notesActions.TRASH_NOTES, payload:notes});
+        }
+    } catch (error) {
+        toast.error("Some error occured. Try Again:( ");
+        notesDispatch({ type: notesActions.ERROR, payload: error});
     }
 }
 

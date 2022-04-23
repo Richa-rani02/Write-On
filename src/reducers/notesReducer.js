@@ -29,6 +29,13 @@ export const notesReducer=(state,action)=>{
                 archiveList:payload.archives
             }
         }
+        case notesActions.TRASH_NOTES:{
+            return{
+                ...state,
+                notesList:payload.notes,
+                trashList:payload.notes
+            }
+        }
     }
 
 }

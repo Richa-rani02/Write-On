@@ -32,7 +32,7 @@ export const getNotes = async (token, notesDispatch) => {
         }
         );
         if (status === 200 || status === 201) {
-            notesDispatch({ type: notesActions.GET_NOTES, payload: [...notes] });
+            notesDispatch({ type: notesActions.GET_NOTES, payload: notes });
         }
     } catch (error) {
         toast.error("Some error occured. Try Again:( ");

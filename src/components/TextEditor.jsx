@@ -29,7 +29,7 @@ export const TextEditor = () => {
 
  const AddNotes=(e)=>{
    e.preventDefault();
-   if(notes.title.length==0 && notes.description.length==0){
+   if(notes.title.length==0 || notes.description.length==0){
      setNotes({...notes,error:"Title and description is Blank"})
    }else{
     addToNotes(token,notesDispatch,notes);

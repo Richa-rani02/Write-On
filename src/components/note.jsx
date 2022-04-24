@@ -1,7 +1,7 @@
 import { isInList } from "../utils/helper";
 import { FaSignal, FaTrashAlt } from "react-icons/fa";
 import { useNotes } from "../context/notes-context";
-import { archiveNotes, trashNotes } from '../services/notesServices';
+import { archiveNotes, trashNotes,restoreArchive,moveArchiveToTrash,restoreTrash,deleteTrash } from '../services/index';
 import { useAuth } from "../context/auth-context";
 import { BiArchiveIn, BiEdit } from "react-icons/bi";
 import { MdOutlineUnarchive, MdRestoreFromTrash, MdDeleteForever } from "react-icons/md";
@@ -15,17 +15,27 @@ export const Note = ({ notes }) => {
     const archiveHandler = () => {
         token
             ? isInArchive
-                ? removeFromWatchLater(notesDispatch, token, id)
+                ? restoreArchive(token, notesDispatch, notes, notes._id)
                 : archiveNotes(token, notesDispatch, notes, notes._id)
             : navigate("/login")
     }
 
-    const trashHandler = () => {
-        token
-            ? isInTrash
-                ? removeFromWatchLater(notesDispatch, token, id)
-                : trashNotes(token, notesDispatch, notes, notes._id)
-            : navigate("/login")
+    const NotesToTrash = () => {
+        isInTrash
+            ? removeFromWatchLater(notesDispatch, token, id)
+            : trashNotes(token, notesDispatch, notes, notes._id)
+    }
+
+    const ArchiveToTrash=()=>{
+        moveArchiveToTrash(token,notesDispatch,notes,notes._id)
+    }
+
+    const trashToNotes=()=>{
+        restoreTrash(token,notesDispatch,notes,notes._id);
+    }
+
+    const deleteFromTrash=()=>{
+        deleteTrash(token,notesDispatch,notes._id);
     }
 
     return notes ? (
@@ -54,8 +64,8 @@ export const Note = ({ notes }) => {
 
                         {isInTrash ?
                             <>
-                                <MdRestoreFromTrash className="mr-3" size={24} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} />
-                                <MdDeleteForever className="mr-3" size={24} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} />
+                                <MdRestoreFromTrash className="mr-3" size={24} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} onClick={() => trashToNotes()} />
+                                <MdDeleteForever className="mr-3" size={24} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} onClick={() => deleteFromTrash()} />
                             </>
                             :
                             <>
@@ -65,19 +75,10 @@ export const Note = ({ notes }) => {
                                         <BiEdit className="mr-3" size={22} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} onClick="" />
                                     </>
                                 }
-                                <FaTrashAlt className="mr-3" size={22} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} onClick={() => trashHandler()} />
+                                <FaTrashAlt className="mr-3" size={22} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} onClick={() => isInArchive ?ArchiveToTrash():NotesToTrash()} />
                             </>
 
                         }
-
-                        {/* {isInTrash ?
-                        <>
-                         <MdRestoreFromTrash className="mr-3" size={24} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }}/>
-                         <MdDeleteForever className="mr-3" size={24} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }}/>
-                         </>
-                        :
-                        <FaTrashAlt className="mr-3" size={22} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} onClick={()=>trashHandler()} />
-                        } */}
                     </div>
                 </div>
             </div>

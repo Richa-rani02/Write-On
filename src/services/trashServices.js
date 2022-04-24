@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 export const getTrash = async (token, notesDispatch) => {
     try {
-        const { data: {trash}, status } = await axios.get(archiveUrl, {
+        const { data: {trash}, status } = await axios.get(trashUrl, {
             headers: {
                 authorization: token
             }
@@ -15,14 +15,13 @@ export const getTrash = async (token, notesDispatch) => {
             notesDispatch({ type: notesActions.GET_TRASH, payload:trash });
         }
     } catch (error) {
-        toast.error("Some error occured. Try Again:( ");
         notesDispatch({ type: notesActions.ERROR, payload: error.response });
     }
 }
 
 export const restoreTrash = async (token, notesDispatch, note, id) => {
     try {
-        const { data: {trash,notes }, status } = await axios.post(`/api/trash/restore${id}`, {
+        const { data: {trash,notes}, status } = await axios.post(`/api/trash/restore/${id}`, {
             note: note
         }, {
             headers: {
@@ -36,14 +35,14 @@ export const restoreTrash = async (token, notesDispatch, note, id) => {
         }
     } catch (error) {
         toast.error("Some error occured. Try Again:( ");
+        console.log(error);
         notesDispatch({ type: notesActions.ERROR, payload: error });
     }
 }
 
-
 export const deleteTrash = async (token, notesDispatch, id) => {
     try {
-        const { data: {trash}, status } = await axios.delete(`/api/trash/delete${id}`,{
+        const { data: {trash}, status } = await axios.delete(`/api/trash/delete/${id}`,{
             headers: {
                 authorization: token
             }
@@ -51,9 +50,10 @@ export const deleteTrash = async (token, notesDispatch, id) => {
         );
         if (status === 200 || status === 201) {
             toast.success("Notes deleted");
-            notesDispatch({ type: notesActions.DELETE_TRASH, payload: {trash:trash} });
+            notesDispatch({ type: notesActions.DELETE_TRASH, payload:trash });
         }
     } catch (error) {
+        console.log(error);
         toast.error("Some error occured. Try Again:( ");
         notesDispatch({ type: notesActions.ERROR, payload: error });
     }

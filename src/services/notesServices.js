@@ -18,7 +18,6 @@ export const addToNotes = async (token, notesDispatch, note) => {
             notesDispatch({ type: notesActions.ADD_NOTES, payload: notes });
         }
     } catch (error) {
-        toast.error("Some error occured. Try Again:( ");
         notesDispatch({ type: notesActions.ERROR, payload: error.response });
     }
 }
@@ -41,8 +40,7 @@ export const getNotes = async (token, notesDispatch) => {
 }
 
 export const archiveNotes = async (token, notesDispatch, note, id) => {
-    console.log(note);
-    console.log(id);
+
     try {
         const { data: { archives, notes }, status } = await axios.post(`/api/notes/archives/${id}`, {
             note: note
@@ -63,8 +61,6 @@ export const archiveNotes = async (token, notesDispatch, note, id) => {
 }
 
 export const trashNotes = async (token, notesDispatch, note, id) => {
-    console.log(note);
-    console.log(id);
     try {
         const { data: { notes, trash }, status } = await axios.post(`/api/notes/trash/${id}`, {
             note: note

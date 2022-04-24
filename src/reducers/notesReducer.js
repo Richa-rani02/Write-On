@@ -2,7 +2,6 @@ import { notesActions } from "../utils/actions";
 export const notesReducer=(state,action)=>{
   
     const {type,payload}=action;
-    console.log(payload);
     switch(type){
         case notesActions.ADD_NOTES:{
             return{

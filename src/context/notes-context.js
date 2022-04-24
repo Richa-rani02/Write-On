@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useRef,useReducer } from "react";
 import { useEffect } from "react";
 import { notesReducer } from "../reducers/notesReducer";
-import {getNotes} from "../services/notesServices";
+import {getNotes,getArchive,getTrash} from "../services/index";
 import { useAuth } from "./auth-context";
 
 export const NotesContext = createContext({});
@@ -30,6 +30,9 @@ const NotesProvider = ({ children }) => {
             setLabel(data)
         }
         getNotes(token,notesDispatch);
+        getArchive(token,notesDispatch);
+        getTrash(token,notesDispatch);
+
     }, [])
 
     const addLabel = (inputValue) => {

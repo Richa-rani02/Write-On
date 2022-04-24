@@ -21,8 +21,8 @@ import {
   getAlltrashedNotesHandler,
   deleteFromTrashHandler,
   restoreFromTrashHandler,
-
 } from "./backend/controllers/TrashController";
+
 import { users } from "./backend/db/users";
 
 export function makeServer({ environment = "development" } = {}) {
@@ -79,7 +79,7 @@ export function makeServer({ environment = "development" } = {}) {
       );
 
       //trash notes
-      this.get("/trash",  getAlltrashedNotesHandler.bind(this));
+      this.get("/trash",getAlltrashedNotesHandler.bind(this));
       this.post(
         "/trash/restore/:noteId",
         restoreFromTrashHandler.bind(this)

@@ -2,7 +2,6 @@ import { Header, Sidebar,Note} from "../components";
 import {useNotes} from "../context/notes-context";
 export const Trash=()=>{
     const {notesState:{trashList}}=useNotes();
-    console.log(trashList);
     return (
         <div className="notes bg-[#FAFAFA] h-full w-screen">
             <Header />

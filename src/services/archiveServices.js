@@ -15,7 +15,6 @@ export const getArchive = async (token, notesDispatch) => {
             notesDispatch({ type: notesActions.GET_ARCHIVE, payload:archives });
         }
     } catch (error) {
-        toast.error("Some error occured. Try Again:( ");
         notesDispatch({ type: notesActions.ERROR, payload: error.response });
     }
 }
@@ -51,7 +50,7 @@ export const restoreArchive = async (token, notesDispatch, note, id) => {
         }
         );
         if (status === 200 || status === 201) {
-            toast.success("Notes moved to trash");
+            toast.success("Notes restored to notesList");
             notesDispatch({ type: notesActions.RESTORE_ARCHIVE, payload: {archives:archives,notes:notes } });
         }
     } catch (error) {

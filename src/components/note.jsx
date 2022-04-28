@@ -5,7 +5,7 @@ import { archiveNotes, trashNotes,restoreArchive,moveArchiveToTrash,restoreTrash
 import { useAuth } from "../context/auth-context";
 import { useGlobalContext } from "../context/global-context";
 import { BiArchiveIn, BiEdit } from "react-icons/bi";
-import { MdOutlineUnarchive, MdRestoreFromTrash, MdDeleteForever } from "react-icons/md";
+import { MdOutlineUnarchive, MdRestoreFromTrash, MdDeleteForever,MdPriorityHigh } from "react-icons/md";
 export const Note = ({ notes }) => {
 
     const { notesState: { archiveList, trashList }, notesDispatch,isEditing,setIsEditing,setNotes} = useNotes();
@@ -64,7 +64,7 @@ export const Note = ({ notes }) => {
                     <p className="text-xs mr-2">{notes.createdTime}</p>
                     {notes.priority.length > 0 &&
                         <>
-                            <FaSignal className="mr-0.5" />
+                           <FaSignal size={18} className="mr-0.5" />
                             <p className="text-xs mr-1">{notes.priority}</p>
                         </>}
 

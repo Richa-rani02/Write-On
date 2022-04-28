@@ -80,4 +80,23 @@ export const trashNotes = async (token, notesDispatch, note, id) => {
     }
 }
 
+export const editNotes = async (token,notesDispatch,note,id) => {
+    try {
+        const { data: { notes }, status } = await axios.post(`/api/notes/${id}`, {
+            note: note
+        }, {
+            headers: {
+                authorization: token
+            }
+        }
+        );
+        if (status === 200 || status === 201) {
+            toast.success("Notes updated ");
+            notesDispatch({ type: notesActions.EDIT_NOTES, payload: notes });
+        }
+    } catch (error) {
+        notesDispatch({ type: notesActions.ERROR, payload: error.response });
+    }
+}
+
 

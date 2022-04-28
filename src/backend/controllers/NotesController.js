@@ -132,7 +132,7 @@ export const updateNoteHandler = function (schema, request) {
 
 /**
  * This handler handles archiving a note
- * send POST Request at /api/notes/archive/:noteId
+ * send POST Request at /api/notes/archives/:noteId
  * body contains {note}
  * */
 
@@ -157,6 +157,45 @@ export const archiveNoteHandler = function (schema, request) {
       201,
       {},
       { archives: user.archives, notes: user.notes }
+    );
+  } catch (error) {
+    return new Response(
+      500,
+      {},
+      {
+        error,
+      }
+    );
+  }
+};
+
+/**
+ * This handler handles moving notes to trash
+ ** send POST Request at /api/notes/trash/:noteId
+ * body contains {note}
+ * */
+
+export const trashNoteHandler = function (schema, request) {
+  const user = requiresAuth.call(this, request);
+  try {
+    if (!user) {
+      return new Response(
+        404,
+        {},
+        {
+          errors: ["The email you entered is not Registered. Not Found error"],
+        }
+      );
+    }
+    const { noteId } = request.params;
+    const trashedNote = user.notes.filter((note) => note._id === noteId)[0];
+    user.notes = user.notes.filter((note) => note._id !== noteId);
+    user.trash.push({ ...trashedNote });
+    this.db.users.update({ _id: user._id }, user);
+    return new Response(
+      201,
+      {},
+      { trash: user.trash, notes: user.notes }
     );
   } catch (error) {
     return new Response(

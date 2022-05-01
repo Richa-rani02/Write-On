@@ -3,11 +3,13 @@ import { FaSignal, FaTrashAlt } from "react-icons/fa";
 import { useNotes } from "../context/notes-context";
 import { archiveNotes, trashNotes,restoreArchive,moveArchiveToTrash,restoreTrash,deleteTrash } from '../services/index';
 import { useAuth } from "../context/auth-context";
+import { useGlobalContext } from "../context/global-context";
 import { BiArchiveIn, BiEdit } from "react-icons/bi";
-import { MdOutlineUnarchive, MdRestoreFromTrash, MdDeleteForever } from "react-icons/md";
+import { MdOutlineUnarchive, MdRestoreFromTrash, MdDeleteForever,MdPriorityHigh } from "react-icons/md";
 export const Note = ({ notes }) => {
 
-    const { notesState: { archiveList, trashList }, notesDispatch } = useNotes();
+    const { notesState: { archiveList, trashList }, notesDispatch,isEditing,setIsEditing,setNotes} = useNotes();
+    const {tooglenotesModal}=useGlobalContext();
     const { authState: { token } } = useAuth();
     const isInArchive = isInList(archiveList, notes._id);
     const isInTrash = isInList(trashList, notes._id);
@@ -38,6 +40,12 @@ export const Note = ({ notes }) => {
         deleteTrash(token,notesDispatch,notes._id);
     }
 
+    const editHandler=(e)=>{
+        tooglenotesModal(e);
+            setNotes(notes);
+            setIsEditing(true);   
+    }
+
     return notes ? (
         <div className="w-full flex flex-col bg-white min-h-[13rem] rounded-md shadow-lg">
             <div className="card-top w-full h-[2%] rounded-tl-md rounded-tr-md" style={{ "background-color": notes.Color.tagColor }}></div>
@@ -56,7 +64,7 @@ export const Note = ({ notes }) => {
                     <p className="text-xs mr-2">{notes.createdTime}</p>
                     {notes.priority.length > 0 &&
                         <>
-                            <FaSignal className="mr-0.5" />
+                           <FaSignal size={18} className="mr-0.5" />
                             <p className="text-xs mr-1">{notes.priority}</p>
                         </>}
 
@@ -72,7 +80,7 @@ export const Note = ({ notes }) => {
                                 {isInArchive ? <MdOutlineUnarchive className="mr-3" size={22} style={{ "color": "red", "cursor": "pointer" }} onClick={() => archiveHandler()} /> :
                                     <>
                                         <BiArchiveIn className="mr-3" size={22} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} onClick={() => archiveHandler()} />
-                                        <BiEdit className="mr-3" size={22} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} onClick="" />
+                                        <BiEdit className="mr-3" size={22} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} onClick={editHandler} />
                                     </>
                                 }
                                 <FaTrashAlt className="mr-3" size={22} style={{ "color": notes.Color.tagColor, "cursor": "pointer" }} onClick={() => isInArchive ?ArchiveToTrash():NotesToTrash()} />

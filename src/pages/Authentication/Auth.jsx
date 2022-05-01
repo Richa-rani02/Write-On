@@ -4,7 +4,6 @@ import { Signup } from "./Signup";
 import { useLocation } from "react-router-dom";
 export const Auth = () => {
     const location=useLocation();
-    console.log(location.pathname);
     return (
         <>
             <Header />

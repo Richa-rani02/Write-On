@@ -1,31 +1,20 @@
-import { useState } from 'react';
-import { BsFillPinFill } from "react-icons/bs";
-import { BiArchiveIn } from "react-icons/bi";
+import { useState} from 'react';
 import { IoColorPalette } from "react-icons/io5";
 import { useNotes } from '../context/notes-context';
 import { useGlobalContext } from '../context/global-context';
 import { useAuth } from '../context/auth-context';
 import { ColorPicker } from './index';
-import { addToNotes,archiveNotes } from '../services/notesServices';
+import { addToNotes,editNotes } from '../services/notesServices';
 
 
 export const TextEditor = () => {
-  let date= new Date().toLocaleDateString();
-  const { label,notesState:{archiveList,trashList},notesDispatch} = useNotes();
-  const {notesModal,tooglenotesModal,setNotesModal}=useGlobalContext();
+
+  const { label,notesDispatch,notes,setNotes,noteInput,isEditing,setIsEditing} = useNotes();
+  const {notesModal,tooglenotesModal}=useGlobalContext();
   const {authState:{token}}=useAuth();
   const [palleteActive,setPalleteActive]=useState(false);
   const [priority, setPriority] = useState(["Priority", "Low", "Medium", "High"]);
-  const noteInput={
-      title:"",
-      description:"",
-      tags:[],
-      Color:{tagColor:"#a1a1aa", bgColor:"#f4f4f5"},
-      priority:"",
-      createdTime:date,
-      error:"",
-  }
-  const [notes,setNotes]=useState({...noteInput})
+
 
  const AddNotes=(e)=>{
    e.preventDefault();
@@ -33,10 +22,19 @@ export const TextEditor = () => {
      setNotes({...notes,error:"Title and description is Blank"})
    }else{
     addToNotes(token,notesDispatch,notes);
-    setNotesModal(prev=>!prev);
+    tooglenotesModal(e);
     setNotes(noteInput);
+
    }
    
+ }
+
+ const editHandler=(e)=>{
+  e.preventDefault();
+  editNotes(token,notesDispatch,notes,notes._id);
+  setNotes(noteInput);
+  setIsEditing(false);
+  tooglenotesModal(e);
  }
 
   return (
@@ -100,7 +98,7 @@ export const TextEditor = () => {
             </select>
           </div>
           <div className="btn-right">
-            <button class="add border-0 outline-0 px-2.5 py-1 rounded-3xl text-lg bg-blue-100 mr-1 " onClick={AddNotes}>Add</button>
+            <button class="add border-0 outline-0 px-2.5 py-1 rounded-3xl text-lg bg-blue-100 mr-1 " onClick={isEditing?editHandler:AddNotes}>Add</button>
             <button class="add border-0 outline-0 px-2.5 py-1 rounded-3xl text-lg bg-gray-100  " onClick={tooglenotesModal}>Cancel</button>
           </div>
         </div>

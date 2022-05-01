@@ -8,9 +8,22 @@ export const NotesContext = createContext({});
 
 const NotesProvider = ({ children }) => {
 
+    let date= new Date().toLocaleDateString();
     const [label, setLabel] = useState([]);
+    const [isEditing,setIsEditing]=useState(false);
+    const noteInput={
+        title:"",
+        description:"",
+        tags:[],
+        Color:{tagColor:"#a1a1aa", bgColor:"#f4f4f5"},
+        priority:"",
+        createdTime:date,
+        error:"",
+    }
+    const [notes,setNotes]=useState({...noteInput});
 
     const {authState:{token}}=useAuth();
+
     const initialNotesValue={
         loading:false,
         error:"",
@@ -43,7 +56,7 @@ const NotesProvider = ({ children }) => {
         inputValue.current.value = "";
     }
     return (
-        <NotesContext.Provider value={{ label, addLabel,notesState,notesDispatch }}>
+        <NotesContext.Provider value={{ label, addLabel,notesState,notesDispatch,notes,setNotes,noteInput,isEditing,setIsEditing }}>
             {children}
         </NotesContext.Provider>
     )

@@ -1,6 +1,5 @@
 import {Link} from "react-router-dom";
 export const Home = () => {
-  //  let navigate=useNavigate();
     return (
         <div className="home flex w-screen h-screen flex-wrap">
             <div className="p-5 w-full lg:w-3/6 flex flex-col items-center justify-center text-center gap-6">

@@ -4,7 +4,6 @@ import { loginUrl,signupUrl } from "../utils/apiUrl";
 import toast from "react-hot-toast";
 
 export const userLogin = async (userDetails, authDispatch, navigate) => {
-    console.log(userDetails);
     authDispatch({ type: authActions.LOADING })
     const toastId = toast.loading("Logging in...");
 

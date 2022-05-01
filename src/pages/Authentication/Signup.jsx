@@ -47,7 +47,7 @@ export const Signup = () => {
                     <form onSubmit={e => e.preventDefault()} >
                         <div className="flex w-full gap-1 mt-8">
                             <div>
-                                <label className="block"><span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+                                <label className="block"><span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
                                     FirstName
                                 </span></label>
                                 <input type="name" placeholder="Firstname" name="firstName" value={formValues.firstName}
@@ -55,7 +55,7 @@ export const Signup = () => {
 
                             </div>
                             <div>
-                                <label className="block"><span class="block text-sm font-medium text-slate-700">
+                                <label className="block"><span className="block text-sm font-medium text-slate-700">
                                     LastName
                                 </span></label>
                                 <input type="name" placeholder="LastName"  name="lastName" value={formValues.lastName}
@@ -64,14 +64,14 @@ export const Signup = () => {
                         </div>
                         <div className="mt-4">
                             <div>
-                                <label className="block" for="email"><span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+                                <label className="block" for="email"><span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
                                     Email
                                 </span></label>
                                 <input type="email" placeholder="Email" name="email" value={formValues.email}
                                     className="w-full px-4 py-2 mt-2 border rounded-sm focus:outline-none focus:ring-1 focus:ring-cyan-600" onChange={handleChange} required />
                             </div>
                             <div className="mt-4">
-                                <label className="block"><span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+                                <label className="block"><span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
                                     Password
                                 </span></label>
                                 <input type="password" placeholder="Password" name="password" value={formValues.password}

@@ -34,7 +34,6 @@ export const getNotes = async (token, notesDispatch) => {
             notesDispatch({ type: notesActions.GET_NOTES, payload: notes });
         }
     } catch (error) {
-        toast.error("Some error occured. Try Again:( ");
         notesDispatch({ type: notesActions.ERROR, payload: error.response });
     }
 }

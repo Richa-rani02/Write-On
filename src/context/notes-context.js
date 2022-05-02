@@ -9,7 +9,7 @@ export const NotesContext = createContext({});
 const NotesProvider = ({ children }) => {
 
     let date= new Date().toLocaleDateString();
-    const [label, setLabel] = useState([]);
+    const [label, setLabel] = useState(['Home','Daily','Weekly','work','other']);
     const [isEditing,setIsEditing]=useState(false);
     const noteInput={
         title:"",

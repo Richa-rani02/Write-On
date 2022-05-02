@@ -6,3 +6,5 @@
  export {NotFound} from "./NotFound";
  export {Archive} from "./Archive";
  export {Trash} from "./Trash";
+ export {EmptyPage} from "./EmptyPage";
+ export {Label} from "./Label";

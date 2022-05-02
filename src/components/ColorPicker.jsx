@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 
 export const ColorPicker = ({ palleteActive, setPalleteActive, setNotes, notes }) => {
 
@@ -44,8 +44,8 @@ export const ColorPicker = ({ palleteActive, setPalleteActive, setNotes, notes }
 
   return (
     <div className={`${palleteActive ? 'absolute' : 'hidden'} color-pallete-grid gap-1 bg-white grid grid-rows-[repeat(2,27px)] grid-cols-[repeat(4,27px)] p-3 z-3 top-[100%] left-[50%] border border-solid border-gray-200`}>
-      {colorsData.map((color) => (
-        <div className="rounded-full"
+      {colorsData.map((color,index) => (
+        <div key={index} className="rounded-full"
           style={{
             backgroundColor: color.secondaryColor,
           }} onClick={() => chooseColor(color)}

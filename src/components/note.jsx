@@ -1,11 +1,9 @@
 import { isInList } from "../utils/helper";
-import { FaSignal, FaTrashAlt } from "react-icons/fa";
 import { useNotes } from "../context/notes-context";
 import { archiveNotes, trashNotes,restoreArchive,moveArchiveToTrash,restoreTrash,deleteTrash } from '../services/index';
 import { useAuth } from "../context/auth-context";
 import { useGlobalContext } from "../context/global-context";
-import { BiArchiveIn, BiEdit } from "react-icons/bi";
-import { MdOutlineUnarchive, MdRestoreFromTrash, MdDeleteForever,MdPriorityHigh } from "react-icons/md";
+import { MdOutlineUnarchive, MdRestoreFromTrash, MdDeleteForever, FaSignal, FaTrashAlt,BiArchiveIn, BiEdit} from "../utils/icons";
 export const Note = ({ notes }) => {
 
     const { notesState: { archiveList, trashList }, notesDispatch,isEditing,setIsEditing,setNotes} = useNotes();

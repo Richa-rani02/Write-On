@@ -1,6 +1,5 @@
 import {useAuth} from "../context/auth-context";
-import {MdDarkMode} from "react-icons/md";
-import {BiUser} from "react-icons/bi";
+import {BiUser} from "../utils/icons";
 export const Header=()=>{
     const {authState:{token}}=useAuth();
     return(
@@ -14,8 +13,6 @@ export const Header=()=>{
            </div> 
            <div className="flex justify-between gap-4">
                {token && <BiUser size={30} className="fill-purpleprimary"/> }
-            
-           <MdDarkMode size={30} className="fill-purpleprimary"/>
            </div>
         </header>
     )

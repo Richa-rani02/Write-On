@@ -1,4 +1,4 @@
-import { MdAddCircle, MdOutlineClose } from "react-icons/md";
+import { MdAddCircle, MdOutlineClose } from "../utils/icons";
 import { useGlobalContext } from "../context/global-context";
 import { useNotes } from "../context/notes-context";
 import {useRef } from "react";

@@ -55,7 +55,7 @@ export const Login = () => {
                     <form onSubmit={e => e.preventDefault()} >
                         <div className="mt-4">
                             <div>
-                                <label className="block" for="email"><span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+                                <label className="block" for="email"><span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
                                     Email
                                 </span></label>
                                 <input type="email" placeholder="Email" name="email" value={formValues.email}
@@ -64,7 +64,7 @@ export const Login = () => {
                             </div>
                             <div className="mt-4">
                                 <label className="block">
-                                    <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+                                    <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
                                         Password
                                     </span>
                                 </label>

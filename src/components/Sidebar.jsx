@@ -1,17 +1,12 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { BiArchiveIn } from "react-icons/bi";
-import { FaHome, FaTrash } from "react-icons/fa";
-import { MdNewLabel, MdSpeakerNotes } from "react-icons/md";
-import { RiLoginCircleFill, RiLogoutCircleFill } from "react-icons/ri";
+import {NavLink, useNavigate } from "react-router-dom";
+import { FaHome, FaTrash,BiArchiveIn,MdNewLabel,MdSpeakerNotes,RiLoginCircleFill,RiLogoutCircleFill} from "../utils/icons";
 import { useAuth } from "../context/auth-context";
 import toast from "react-hot-toast";
 import { authActions } from "../utils/actions";
-import { useGlobalContext } from "../context/global-context";
 
 export const Sidebar = () => {
     let navigate = useNavigate();
     const { authState: { token }, authDispatch } = useAuth();
-    const { toogleLabelModal } = useGlobalContext();
 
     const logOutHandler = () => {
         const toastId = toast.loading("Logging out...");
@@ -19,7 +14,6 @@ export const Sidebar = () => {
             id: toastId,
         });
         authDispatch({ type: authActions.LOGOUT });
-        navigate("/notes");
     }
 
     const getActiveStyle = ({ isActive }) =>
@@ -31,15 +25,15 @@ export const Sidebar = () => {
     return (
 
         <section className={`sidebar flex flex-row md:flex-col lg:flex-col w-full fixed lg:top-0 md:top-0 top-auto bottom-0 lg:left-0  duration-1000
-             p-2 md:w-[300px] lg:w-[300px] overflow-y-auto bg-neutral-50 h-auto lg:h-full mt-16 lg:mt-16 md:mt-16 z-40 lg:z-0`}>
+             p-2 md:w-[300px] lg:w-[300px] overflow-y-auto bg-neutral-50 h-auto lg:h-full mt-16 lg:mt-16 md:mt-16 z-40 lg:z-0 shadow-[0_0_2px_0_rgba(255,195,0,0.6)] lg:shadow-none`}>
             <NavLink to="/" className="font-medium flex justify-start items-center gap-4 rounded-tr-3xl rounded-br-3xl py-3 px-5 text-lg hover:bg-blue-100 text-purpleprimary" style={getActiveStyle}>
                 <FaHome size={24} className="fill-cyan-600" />
                 <span className="hidden lg:block md:block">Home</span>
             </NavLink>
-            <div className=" font-medium flex justify-start items-center gap-4 rounded-tr-3xl rounded-br-3xl py-3 px-5 text-lg mt-1 hover:bg-blue-100 text-purpleprimary" onClick={toogleLabelModal}>
+            <NavLink to="/label" className=" font-medium flex justify-start items-center gap-4 rounded-tr-3xl rounded-br-3xl py-3 px-5 text-lg mt-1 hover:bg-blue-100 text-purpleprimary" style={(getActiveStyle)}>
                 <MdNewLabel size={24} className="fill-cyan-600" />
                 <span className="hidden lg:block md:block cursor-pointer">Labels</span>
-            </div>
+            </NavLink>
             <NavLink to="/notes" className="font-medium flex justify-start items-center gap-4 rounded-tr-3xl rounded-br-3xl py-3 px-5 text-lg mt-1 hover:bg-blue-100 text-purpleprimary " style={(getActiveStyle)}>
                 <MdSpeakerNotes size={24} className="fill-cyan-600" />
                 <span className="hidden lg:block md:block">Notes</span>

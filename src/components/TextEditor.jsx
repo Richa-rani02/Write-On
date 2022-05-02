@@ -59,7 +59,7 @@ export const TextEditor = () => {
           onChange={(e)=>{setNotes({...notes,description:e.target.value})}}
         ></textarea>
         <p className='text-red-500'>{notes.error}</p>
-        <div className="notesbtn px-2 py-3 border-t border-solid border-[rgba(95, 99, 104, 0.157)] flex items-center justify-between">
+        <div className="notesbtn px-2 py-3 border-t border-solid border-[rgba(95, 99, 104, 0.157)] flex items-center justify-between flex-col md:flex-row lg:flex-row">
           <div className="btn-left flex items-center gap-1 lg:gap-3 text-lg mr-3">
             <div class="btn-container w-10 h-10 flex items-center justify-center flex-wrap relative rounded-full hover:bg-blue-100">
               <IoColorPalette onClick={()=>setPalleteActive(prev=>!prev)} />
@@ -97,9 +97,9 @@ export const TextEditor = () => {
               })}
             </select>
           </div>
-          <div className="btn-right">
-            <button class="add border-0 outline-0 px-2.5 py-1 rounded-3xl text-lg bg-blue-100 mr-1 " onClick={isEditing?editHandler:AddNotes}>Add</button>
-            <button class="add border-0 outline-0 px-2.5 py-1 rounded-3xl text-lg bg-gray-100  " onClick={tooglenotesModal}>Cancel</button>
+          <div className="w-full md:w-auto lg:w-auto btn-right flex justify-between mt-3 lg:mt-0">
+            <button class="add border-0 outline-0 px-3.5 py-0.5 rounded-3xl text-lg bg-blue-100 mr-1 " onClick={isEditing?editHandler:AddNotes}>Add</button>
+            <button class="add border-0 outline-0 px-2.5 py-0.5 rounded-3xl text-lg bg-gray-100  " onClick={tooglenotesModal}>Cancel</button>
           </div>
         </div>
       </form>

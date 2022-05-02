@@ -44,7 +44,7 @@ export const Login = () => {
     }
     return (
         <>
-            <div className="w-1/2 h-full overflow-hidden ">
+            <div className="w-full lg:w-1/2  h-full overflow-hidden ">
                 <div className="px-8 py-6 text-left bg-white">
                     <h3 className="text-2xl font-bold text-center text-purpleprimary ">Login</h3>
                     {

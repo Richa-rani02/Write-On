@@ -4,3 +4,4 @@ export {IoColorPalette} from "react-icons/io5"
 export {FaHome,FaTrash,FaSignal, FaTrashAlt} from "react-icons/fa";
 export { BiArchiveIn,BiUser,BiEdit } from "react-icons/bi";
 export { RiLoginCircleFill, RiLogoutCircleFill } from "react-icons/ri";
+export {FcHighPriority,FcLowPriority,FcMediumPriority} from "react-icons/fc";

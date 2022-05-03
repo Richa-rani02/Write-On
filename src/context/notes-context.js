@@ -8,7 +8,7 @@ export const NotesContext = createContext({});
 
 const NotesProvider = ({ children }) => {
 
-    let date= new Date().toLocaleDateString();
+    let date= new Date().toLocaleString();
     const [label, setLabel] = useState(['Home','Daily','Weekly','work','other']);
     const [isEditing,setIsEditing]=useState(false);
     const noteInput={

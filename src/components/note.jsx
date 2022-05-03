@@ -3,7 +3,7 @@ import { useNotes } from "../context/notes-context";
 import { archiveNotes, trashNotes,restoreArchive,moveArchiveToTrash,restoreTrash,deleteTrash } from '../services/index';
 import { useAuth } from "../context/auth-context";
 import { useGlobalContext } from "../context/global-context";
-import { MdOutlineUnarchive, MdRestoreFromTrash, MdDeleteForever, FaSignal, FaTrashAlt,BiArchiveIn, BiEdit} from "../utils/icons";
+import { MdOutlineUnarchive, MdRestoreFromTrash, MdDeleteForever,FcHighPriority,FcLowPriority,FcMediumPriority, FaTrashAlt,BiArchiveIn, BiEdit} from "../utils/icons";
 export const Note = ({ notes }) => {
 
     const { notesState: { archiveList, trashList }, notesDispatch,isEditing,setIsEditing,setNotes} = useNotes();
@@ -61,10 +61,28 @@ export const Note = ({ notes }) => {
                 <div className="flex justify-between items-center px-1">
                     <p className="text-xs mr-2">{notes.createdTime}</p>
                     {notes.priority.length > 0 &&
-                        <>
-                           <FaSignal size={18} className="mr-0.5" />
-                            <p className="text-xs mr-1">{notes.priority}</p>
-                        </>}
+                        (() => {
+                            switch (notes.priority) {
+                              case 'Low':
+                                return <>
+                               <FcLowPriority size={22} className="mr-0.5" />
+                               <p className="text-xs mr-1">{notes.priority}</p>
+                                </>;
+                              case 'Medium':
+                                return <>
+                               <FcMediumPriority size={22} className="mr-0.5" />
+                               <p className="text-xs mr-1">{notes.priority}</p>
+                                </>;
+                              case 'High':
+                                return <>
+                               <FcHighPriority size={22} className="mr-0.5" />
+                               <p className="text-xs mr-1">{notes.priority}</p>
+                                </>;
+                              default:
+                                return null;
+                            }
+                          })()
+                        }
 
                     <div className="note-card-btn ml-auto mt-1 flex ">
 

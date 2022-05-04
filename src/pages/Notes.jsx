@@ -1,11 +1,11 @@
-import { Header, Sidebar, Note, TextEditor } from "../components";
+import { Header, Sidebar, Note, TextEditor,FilterModal } from "../components";
 import { IoMdAdd,MdTune } from "../utils/icons";
 import { useGlobalContext } from "../context/global-context";
 import { useNotes } from "../context/notes-context";
 import { EmptyPage } from "./index";
 export const Notes = () => {
 
-    const { tooglenotesModal } = useGlobalContext();
+    const { tooglenotesModal,toogleFilterModal } = useGlobalContext();
     const { notesState: { notesList }, setNotes, noteInput } = useNotes();
     return (
         <div className="notes bg-[#FAFAFA] w-screen overflow-hidden">
@@ -27,7 +27,7 @@ export const Notes = () => {
                         <input type="search" placeholder="search here..." className="p-2.5 w-full xl:w-96 border-b-2 border-cyan-500 bg-[#f5f3ff] focus:outline-none"
                         />
                         <button type="button" className="text-white bg-cyan-500 hover:bg-cyan-800 focus:outline-none font-medium text-sm py-2.5 px-7 text-center inline-flex items-center dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800">
-                            <MdTune size={24} />
+                            <MdTune size={24} onClick={toogleFilterModal} />
                         </button>
                     </div>
 
@@ -43,6 +43,7 @@ export const Notes = () => {
                     <EmptyPage msg={'No Notes Added !!'} />
                 }
             </main>
+            <FilterModal/>
             <TextEditor />
         </div>
 

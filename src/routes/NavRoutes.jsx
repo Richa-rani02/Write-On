@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
-import { Home, Notes, NotFound, Auth, Archive, Trash,Label } from "../pages/index";
+import { Home, Notes, NotFound, Auth, Archive, Trash, Label, UserProfile } from "../pages/index";
 import { ProtectedRoutes } from "./ProtectedRoutes";
 const NavRoutes = () => {
   return (
@@ -11,9 +11,14 @@ const NavRoutes = () => {
       <Route path="/auth" element={<Auth />} />
       <Route path="/label" element={
         <ProtectedRoutes>
-      <Label/>
-      </ProtectedRoutes>
-      }/>
+          <Label />
+        </ProtectedRoutes>
+      } />
+      <Route path="/user" element={
+        <ProtectedRoutes>
+          <UserProfile />
+        </ProtectedRoutes>
+      } />
       <Route path="/notes" element={
         <ProtectedRoutes>
           <Notes />

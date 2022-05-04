@@ -8,3 +8,4 @@
  export {Trash} from "./Trash";
  export {EmptyPage} from "./EmptyPage";
  export {Label} from "./Label";
+ export {UserProfile} from "./UserProfile";

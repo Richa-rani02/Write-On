@@ -1,7 +1,9 @@
 import {useAuth} from "../context/auth-context";
 import {BiUser} from "../utils/icons";
+import { useNavigate } from "react-router-dom"; 
 export const Header=()=>{
     const {authState:{token}}=useAuth();
+    const navigate=useNavigate();
     return(
         <header className="max-h-16 w-full flex px-6 py-4 justify-between items-center bg-[#FFFFFF] fixed inset-0 z-10 shadow-[0_0_2px_0_rgba(255,195,0,0.6)]">
            <div className="flex items-center gap-2">
@@ -12,7 +14,7 @@ export const Header=()=>{
            
            </div> 
            <div className="flex justify-between gap-4">
-               {token && <BiUser size={30} className="fill-purpleprimary"/> }
+               {token && <BiUser size={30} className="fill-purpleprimary" onClick={()=>navigate("/user")}/> }
            </div>
         </header>
     )

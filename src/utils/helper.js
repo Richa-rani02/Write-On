@@ -13,7 +13,6 @@ export const sortDate = (notesList, { sortByDate }) => {
     return updatedList.sort((a, b) => new Date(b.createdTime) - new Date(a.createdTime))
   }
   return updatedList;
-
 }
 
 export const sortPriority = (notesList, { sortByPriority }) => {
@@ -28,14 +27,14 @@ export const sortPriority = (notesList, { sortByPriority }) => {
 export const searchNotes = (notesList, { search }) => {
   let updatedList = [...notesList];
   if (search) {
-    return updatedList.filter(notes => notes.tags[0].toLowerCase().includes(search.toLowerCase()))
+    return updatedList.filter(notes => notes.title.toLowerCase().includes(search.toLowerCase()))
   }
   return updatedList;
 }
 export const filterTags=(notesList,{filterByTags})=>{
   let updatedList=[...notesList];
   if(!filterByTags.length) return updatedList;
- return updatedList.filter(notes=>filterByTags.includes(notes.tags[0].toLowerCase()))
+ return updatedList.filter(notes=>filterByTags.includes(notes.tags[0]?.toLowerCase()))
 }
 
 const filterFunctions = [

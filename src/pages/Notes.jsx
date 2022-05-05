@@ -37,6 +37,7 @@ export const Notes = () => {
 
                 </div>
                 {notesList.length > 0 ?
+                    filteredNotes.length>0?
                     <div className="notes-list-container my-12 mx-5  p-3 ">
                         {filteredNotes.filter(note=>note.isPinned).length>0?
                            <>
@@ -61,6 +62,8 @@ export const Notes = () => {
                             }
                         
                     </div> :
+                     <EmptyPage msg={'No Notes found for this Combination !!'} />
+                      :
                     <EmptyPage msg={'No Notes Added !!'} />
                 }
             </main>

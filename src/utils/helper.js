@@ -1,6 +1,9 @@
 export const isInList = (list, id) => {
   return (list?.some((ele) => ele._id === id))
 }
+export const isNotesPinned=(notesList)=>{
+  return notesList.filter(note=>note.isPinned)
+}
 
 export const sortDate = (notesList, { sortByDate }) => {
   let updatedList = [...notesList];

@@ -4,13 +4,12 @@ import { useGlobalContext } from "../context/global-context";
 import { useNotes } from "../context/notes-context";
 import { filterNotes } from "../context/filter-context";
 import { filterActions } from "../utils/actions";
-import {getFilteredNotes} from "../utils/helper";
+import {getFilteredNotes,isNotesPinned} from "../utils/helper";
 import { EmptyPage } from "./index";
 export const Notes = () => {
     const {filterState,filterDispatch}=filterNotes();
     const { tooglenotesModal,toogleFilterModal } = useGlobalContext();
     const { notesState: { notesList }, setNotes, noteInput } = useNotes();
-    // const filteredNotes=sortDate(notesList,filterState);
     const filteredNotes=getFilteredNotes(notesList,filterState);
     return (
         <div className="notes bg-[#FAFAFA] w-screen overflow-hidden">
@@ -39,11 +38,28 @@ export const Notes = () => {
                 </div>
                 {notesList.length > 0 ?
                     <div className="notes-list-container my-12 mx-5  p-3 ">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-                            {filteredNotes?.map((note) => (
+                        {filteredNotes.filter(note=>note.isPinned).length>0?
+                           <>
+                            <h1 className="font-semibold text-cyan-700" >PINNED</h1>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-5">
+                            {filteredNotes.filter(note=>note.isPinned)?.map((note) => (
                                 <Note key={note.id} notes={note} />
                             ))}
                         </div>
+                         <h1 className="font-semibold text-cyan-700">OTHERS</h1>
+                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+                            {filteredNotes.filter(note=>!note.isPinned)?.map((note) => (
+                                <Note key={note.id} notes={note} />
+                            ))}
+                        </div>
+                         </>:
+                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+                         {filteredNotes?.map((note) => (
+                             <Note key={note.id} notes={note} />
+                         ))}
+                     </div>
+                            }
+                        
                     </div> :
                     <EmptyPage msg={'No Notes Added !!'} />
                 }

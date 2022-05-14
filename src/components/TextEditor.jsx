@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { IoColorPalette } from "../utils/icons";
+import { IoColorPalette,BsPin,BsFillPinFill } from "../utils/icons";
 import { useNotes } from '../context/notes-context';
 import { useGlobalContext } from '../context/global-context';
 import { useAuth } from '../context/auth-context';
@@ -48,6 +48,9 @@ export const TextEditor = () => {
             name="title"
             onChange={(e) => { setNotes({ ...notes, title: e.target.value }) }} className='w-full border-none outline-none focus:outline-none'
           />
+          {notes.isPinned?<BsFillPinFill size={22} onClick={()=>setNotes({...notes,isPinned:false})}/>:
+          <BsPin size={22} onClick={()=>setNotes({...notes,isPinned:true})}/>
+  }
         </div>
 
         <textarea
@@ -97,7 +100,7 @@ export const TextEditor = () => {
             </select>
           </div>
           <div className="w-full md:w-auto lg:w-auto btn-right flex justify-between mt-3 lg:mt-0">
-            <button className="add border-0 outline-0 px-3.5 py-0.5 rounded-3xl text-lg bg-blue-100 mr-1 " onClick={isEditing ? editHandler : AddNotes}>Add</button>
+            <button className="add border-0 outline-0 px-3.5 py-0.5 rounded-3xl text-lg bg-blue-100 mr-1 " onClick={isEditing ? editHandler : AddNotes}>{isEditing?"update":"Add"}</button>
             <button className="add border-0 outline-0 px-2.5 py-0.5 rounded-3xl text-lg bg-gray-100  " onClick={tooglenotesModal}>Cancel</button>
           </div>
         </div>

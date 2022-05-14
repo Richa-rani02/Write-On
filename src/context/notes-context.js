@@ -19,6 +19,7 @@ const NotesProvider = ({ children }) => {
         priority:"",
         createdTime:date,
         error:"",
+        isPinned:false
     }
     const [notes,setNotes]=useState({...noteInput});
 

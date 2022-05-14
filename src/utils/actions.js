@@ -21,3 +21,11 @@ export const notesActions = {
     RESTORE_TRASH:"RESTORE_TRASH",
     DELETE_TRASH:"DELETE_TRASH",  
 }
+
+export const filterActions={
+    SORT_BY_DATE:"SORT_BY_DATE",
+    SORT_BY_PRIORITY:"SORT_BY_PRIORITY",
+    SEARCH_NOTES:"SEARCH_NOTES",
+    FILTER_BY_TAGS:"FILTER_BY_TAGS",
+    CLEAR_ALL:"CLEAR_ALL"
+}

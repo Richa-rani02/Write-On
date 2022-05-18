@@ -2,9 +2,10 @@ import { Header } from "../components";
 import { useAuth } from "../context/auth-context";
 import toast from "react-hot-toast";
 import { authActions } from "../utils/actions";
+import {useEffect} from "react";
 export const UserProfile = () => {
     const {authState:{userDetails},authDispatch} =useAuth();
-
+    let user;
     const logOutHandler = () => {
         const toastId = toast.loading("Logging out...");
         toast.success("You're logged out successfully", {

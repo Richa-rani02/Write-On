@@ -52,7 +52,7 @@ Write-On is a notes keeping application to manage your daily task
 
 ## Demo
 
-![Write-on]
+![write-on](https://user-images.githubusercontent.com/49235266/169644490-9334a797-e93b-4ab7-9c0b-26202df75e6b.gif)
 
 
 

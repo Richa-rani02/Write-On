@@ -22,6 +22,9 @@ This application can be  accessed using the link  [Write-On](https://writeon-not
 
 Write-On is a notes keeping application to manage your daily task
 
+- Tech Stack Used: Reactjs,Tailwind CSS
+
+
 ---
 
 ## Features

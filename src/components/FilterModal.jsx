@@ -24,7 +24,7 @@ export const FilterModal = () => {
                                     isChecked:e.target.checked,
                                     value:e.target.value
                                 }})} checked={filterState.filterByTags.includes(label.toLowerCase())}/>
-                                <label className="form-check-label inline-block text-gray-800" for="inlineCheckbox1">{label}</label>
+                                <label className="form-check-label inline-block text-gray-800" htmlFor="inlineCheckbox1">{label}</label>
                             </div>
                         )
                         )
@@ -33,13 +33,13 @@ export const FilterModal = () => {
                     <hr className="my-4 text-gray-700" />
                     <h1 className="font-medium">Created Date</h1>
                     <div className="flex gap-3">
-                        <div class="form-check form-check-inline mt-3">
+                        <div className="form-check form-check-inline mt-3">
                             <input className="form-check-input form-check-input rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="radio" name="date" id="date" value="oldest" onChange={(e)=>filterDispatch({type:filterActions.SORT_BY_DATE,payload:e.target.value})} checked={filterState.sortByDate} />
-                            <label className="form-check-label inline-block text-gray-800" for="date">Oldest</label>
+                            <label className="form-check-label inline-block text-gray-800" htmlFor="date">Oldest</label>
                         </div>
-                        <div class="form-check form-check-inline mt-3">
+                        <div className="form-check form-check-inline mt-3">
                             <input className="form-check-input form-check-input rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="radio" name="date" id="date" value="latest"  onChange={(e)=>filterDispatch({type:filterActions.SORT_BY_DATE,payload:e.target.value})} />
-                            <label className="form-check-label inline-block text-gray-800" for="date">Latest</label>
+                            <label className="form-check-label inline-block text-gray-800" htmlFor="date">Latest</label>
                         </div>
                     </div>
 
@@ -51,7 +51,7 @@ export const FilterModal = () => {
                             <div key={index} className="form-check form-check-inline my-2">
                                 <input checked={filterState.sortByPriority===priority} type="radio" name="proirity" id="proirity" value={priority} 
                                 className="form-check-input form-check-input rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" onChange={(e)=>filterDispatch({type:filterActions.SORT_BY_PRIORITY,payload:e.target.value})} />
-                                <label className="form-check-label inline-block text-gray-800" for="proirity">{priority}</label>
+                                <label className="form-check-label inline-block text-gray-800" htmlFor="proirity">{priority}</label>
                             </div>
 
                         ))}

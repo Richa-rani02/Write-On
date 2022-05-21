@@ -14,7 +14,6 @@ export const TextEditor = () => {
   const [palleteActive, setPalleteActive] = useState(false);
   const [priority, setPriority] = useState(["Priority", "Low", "Medium", "High"]);
 
-console.log(notes.Color);
   const AddNotes = (e) => {
     e.preventDefault();
     if (notes.title.length == 0 || notes.description.length == 0) {
@@ -38,7 +37,7 @@ console.log(notes.Color);
 
   return (
     <div className={`${notesModal ? 'fixed' : 'hidden'} w-full h-full top-0 left-0 z-50 flex items-center justify-center bg-modal-rgba`}>
-      <form className='lg:w-[50%] flex-wrap p-2 justify-self-center rounded relative shadow-lg' style={{ "background-color": notes.Color.bgColor }}>
+      <form className='lg:w-[50%] flex-wrap p-2 justify-self-center rounded relative shadow-lg' style={{ "backgroundColor": notes.Color.bgColor }}>
         <div className="flex items-center justify-between input__pin mb-4">
 
           <input

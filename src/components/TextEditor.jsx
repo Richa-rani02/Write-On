@@ -14,7 +14,7 @@ export const TextEditor = () => {
   const [palleteActive, setPalleteActive] = useState(false);
   const [priority, setPriority] = useState(["Priority", "Low", "Medium", "High"]);
 
-
+console.log(notes.Color);
   const AddNotes = (e) => {
     e.preventDefault();
     if (notes.title.length == 0 || notes.description.length == 0) {
@@ -38,15 +38,15 @@ export const TextEditor = () => {
 
   return (
     <div className={`${notesModal ? 'fixed' : 'hidden'} w-full h-full top-0 left-0 z-50 flex items-center justify-center bg-modal-rgba`}>
-      <form className="lg:w-[50%] flex-wrap p-2 justify-self-center rounded relative bg-white shadow-lg">
-        <div className="flex items-center justify-between input__pin mb-4 ">
+      <form className='lg:w-[50%] flex-wrap p-2 justify-self-center rounded relative shadow-lg' style={{ "background-color": notes.Color.bgColor }}>
+        <div className="flex items-center justify-between input__pin mb-4">
 
           <input
             value={notes.title}
             type="text"
             placeholder="Title"
             name="title"
-            onChange={(e) => { setNotes({ ...notes, title: e.target.value }) }} className='w-full border-none outline-none focus:outline-none'
+            onChange={(e) => { setNotes({ ...notes, title: e.target.value }) }} className='w-full border-none outline-none focus:outline-none bg-transparent'
           />
           {notes.isPinned?<BsFillPinFill size={22} onClick={()=>setNotes({...notes,isPinned:false})}/>:
           <BsPin size={22} onClick={()=>setNotes({...notes,isPinned:true})}/>
@@ -57,11 +57,11 @@ export const TextEditor = () => {
           value={notes.description}
           name="description"
           placeholder="Take a note..."
-          rows="3" className="input-textarea w-full border-none outline-none focus:outline-none max-h-[3rem] "
+          rows="3" className='input-textarea w-full border-none outline-none focus:outline-none max-h-[3rem] bg-transparent'
           onChange={(e) => { setNotes({ ...notes, description: e.target.value }) }}
         ></textarea>
         <p className='text-red-500'>{notes.error}</p>
-        <div className="notesbtn px-2 py-3 border-t border-solid border-[rgba(95, 99, 104, 0.157)] flex items-center justify-between flex-col md:flex-row lg:flex-row">
+        <div className='notesbtn px-2 py-3 border-t border-solid border-[rgba(95, 99, 104, 0.157)] flex items-center justify-between flex-col md:flex-row lg:flex-row'>
           <div className="btn-left flex items-center gap-1 lg:gap-3 text-lg mr-3">
             <div className="btn-container w-10 h-10 flex items-center justify-center flex-wrap relative rounded-full hover:bg-blue-100">
               <IoColorPalette size={22} onClick={() => setPalleteActive(prev => !prev)} />

@@ -7,6 +7,7 @@ const GlobalProvider=({children})=>{
 const [labelModal,setLabelModal]=useState(false);
 const [notesModal,setNotesModal]=useState(false);    
 const [filterModal,setFilterModal]=useState(false); 
+
 const toogleLabelModal=(e)=>{
     e.preventDefault();
     setLabelModal(prev=>!prev)

@@ -84,7 +84,7 @@ export const Note = ({ notes }) => {
                           })()
                         }
 
-                    <div className="note-card-btn ml-auto mt-1 flex ">
+                    <div className="note-card-btn ml-auto mt-1 flex flex-row md:flex-col lg:flex-row">
 
                         {isInTrash ?
                             <>

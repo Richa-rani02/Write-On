@@ -14,7 +14,7 @@ const NotesProvider = ({ children }) => {
     const noteInput={
         title:"",
         description:"",
-        tags:[],
+        tags:['Home'],
         Color:{tagColor:"#a1a1aa", bgColor:"#f4f4f5"},
         priority:"",
         createdTime:date,

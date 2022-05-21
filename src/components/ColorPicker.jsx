@@ -1,4 +1,3 @@
-import toast from "react-hot-toast";
 export const ColorPicker = ({ palleteActive, setPalleteActive, setNotes, notes }) => {
 
   const colorsData = [
@@ -39,7 +38,6 @@ export const ColorPicker = ({ palleteActive, setPalleteActive, setNotes, notes }
   const chooseColor = (color) => {
     setNotes({ ...notes, Color:{tagColor:color.secondaryColor,bgColor:color.primaryColor} });
     setPalleteActive(prev => !prev)
-    toast.success("color picked !!");
   }
 
   return (

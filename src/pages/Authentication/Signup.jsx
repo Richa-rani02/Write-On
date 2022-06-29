@@ -44,7 +44,7 @@ export const Signup = () => {
                         : null
                     }
 
-                    <form onSubmit={e => e.preventDefault()} >
+                    <form onSubmit={e => e.preventDefault()}>
                         <div className="flex w-full gap-1 mt-8">
                             <div>
                                 <label className="block"><span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">

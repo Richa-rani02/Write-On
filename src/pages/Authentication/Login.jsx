@@ -36,11 +36,15 @@ export const Login = () => {
         );
 
     }
+    const {email,password}=formValues;
     const loginHandler = () => {
+        if(email && password!==""){
         userLogin(
             formValues,
             authDispatch, navigate
         );
+        }
+        setFormValues({email:"",password:""})
     }
     return (
         <>

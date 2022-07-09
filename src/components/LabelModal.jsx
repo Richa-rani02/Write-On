@@ -1,6 +1,7 @@
 import { MdAddCircle, MdOutlineClose } from "../utils/icons";
 import { useGlobalContext } from "../context/global-context";
 import { useNotes } from "../context/notes-context";
+import toast from "react-hot-toast";
 import {useRef } from "react";
 export const LabelModal = () => {
     const { labelModal, toogleLabelModal } = useGlobalContext();
@@ -8,8 +9,13 @@ export const LabelModal = () => {
     const inputValue = useRef(null);
 
 const labelHandler=(e)=>{
-    addLabel(inputValue);
-    toogleLabelModal(e);
+    if(inputValue.current.value){
+        addLabel(inputValue);
+        toogleLabelModal(e);
+    }else{
+        toast.error("label is empty!!");
+    }
+    
 }
     return (
         <div className={`${labelModal ? 'fixed' : 'hidden'} w-full h-full top-0 left-0 z-50 flex items-center justify-center bg-modal-rgba`}>
